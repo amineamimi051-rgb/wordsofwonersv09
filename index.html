@@ -2673,82 +2673,67 @@ startHeartRegenTimer();
 // اعرض شاشة اختيار الوضع عند الفتح
 showModeScreen();
 // ══════════════════════════════════════════════
-// استلام المكافآت من صفحة الهبوط (GitHub Pages)
+// استلام المكافأة من URL Parameters (GitHub Pages)
 // ══════════════════════════════════════════════
-function checkPendingRewards() {
-    const pending = localStorage.getItem('pendingReward');
-    if (!pending) return;
+function checkUrlReward() {
+    const params = new URLSearchParams(window.location.search);
     
-    try {
-        const reward = JSON.parse(pending);
-        let message = '';
-        
-        switch(reward.type) {
-            case 'coins':
-                coins += reward.amount;
-                message = `🎁 مكافأة يومية: +${reward.amount} عملة`;
-                break;
-                
-            case 'hints':
-                ownedHints += reward.amount;
-                message = `🎁 مكافأة يومية: +${reward.amount} تلميح`;
-                break;
-                
-            case 'freezes':
-                ownedFreezes += reward.amount;
-                message = `🎁 مكافأة يومية: +${reward.amount} تجميد`;
-                break;
-                
-            case 'xp':
-                xp += reward.amount;
-                message = `🎁 مكافأة يومية: +${reward.amount} خبرة`;
-                break;
-                
-            case 'hearts':
-                // التأكد من عدم تجاوز الحد الأقصى
-                const oldHearts = hearts;
-                hearts = Math.min(maxHearts + ownedExtraHearts, hearts + reward.amount);
-                if (hearts > oldHearts) {
-                    message = `🎁 مكافأة يومية: +${reward.amount} قلب`;
-                }
-                break;
-                
-            case 'reveals':
-                ownedReveals += reward.amount;
-                message = `🎁 مكافأة يومية: +${reward.amount} كشف كلمة`;
-                break;
-                
-            case 'freezeRobots':
-                ownedFreezeRobots += reward.amount;
-                message = `🎁 مكافأة يومية: +${reward.amount} تجميد روبوت`;
-                break;
-        }
-        
-        // تحديث الواجهة فوراً
-        updateCoinsUI();
-        updateInventoryUI();
-        updateHeartsUI();
-        updateXpUI();
-        
-        // عرض رسالة بعد ثانية (حتى تكتمل تحميل اللعبة)
-        setTimeout(() => {
-            showToast(message);
-            if (typeof AudioSys !== 'undefined') AudioSys.playWin();
-        }, 1000);
-        
-        // حذف المكافأة من التخزين (لمنع الاستلام المزدوج)
-        localStorage.removeItem('pendingReward');
-        
-        // حفظ اللعبة
-        saveGame();
-        
-    } catch (e) {
-        console.error('Error claiming reward:', e);
+    // التحقق من وجود مكافأة في الرابط
+    if (!params.has('reward')) return;
+    
+    const type = params.get('type');
+    const amount = parseInt(params.get('amount')) || 0;
+    const icon = params.get('icon') || '🎁';
+    
+    let message = '';
+    
+    switch(type) {
+        case 'coins':
+            coins += amount;
+            message = `🎁 مكافأة يومية: +${amount} عملة`;
+            break;
+        case 'hints':
+            ownedHints += amount;
+            message = `🎁 مكافأة يومية: +${amount} تلميح`;
+            break;
+        case 'freezes':
+            ownedFreezes += amount;
+            message = `🎁 مكافأة يومية: +${amount} تجميد`;
+            break;
+        case 'xp':
+            xp += amount;
+            message = `🎁 مكافأة يومية: +${amount} خبرة`;
+            break;
+        case 'hearts':
+            hearts = Math.min(maxHearts, hearts + amount);
+            message = `🎁 مكافأة يومية: +${amount} قلب`;
+            break;
     }
+    
+    // تحديث الواجهة
+    updateCoinsUI();
+    updateInventoryUI();
+    updateHeartsUI();
+    updateXpUI();
+    
+    // عرض الرسالة بعد ثانية
+    setTimeout(() => {
+        showToast(message);
+        if (typeof AudioSys !== 'undefined') AudioSys.playWin();
+    }, 1500);
+    
+    // تنظيف الرابط (إزالة parameters)
+    window.history.replaceState({}, document.title, window.location.pathname);
+    
+    // حفظ اللعبة
+    saveGame();
+    
+    console.log('✅ تم استلام المكافأة من الرابط:', {type, amount});
 }
 
-// استدعاء الدالة بعد تحميل اللعبة
-setTimeout(checkPendingRewards, 2000);
+// استدعاء الدالة عند التحميل
+setTimeout(checkUrlReward, 2000);
+  
   
 // مكافأة الجلسة الطويلة
 setTimeout(()=>{ if(gameMode!=='none'){ addCoins(50); showDailyBonus('🕐 5 دقائق! +50🪙'); } },5*60*1000);
