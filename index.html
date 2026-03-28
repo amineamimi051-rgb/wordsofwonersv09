@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>كلمات متشابكة - ضد الروبوت</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Tajawal',sans-serif;min-height:100vh;direction:rtl;overflow-x:hidden;transition:background 1.4s ease}
+
+/* ── THEMES ── */
+body.t1{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);--a:#a78bfa;--a2:#7c3aed;--g:#fbbf24;--cell:#fff2;--cb:#fff3;--ch:#fff4;--pan:#fff1;--pb:#fff2;--tx:#f1f5f9;--tx2:#c4b5fd;--danger:#f87171;--robot:#ef4444}
+body.t2{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);--a:#38bdf8;--a2:#0369a1;--g:#fbbf24;--cell:#fff1;--cb:#38bdf82a;--ch:#38bdf83a;--pan:#fff1;--pb:#38bdf825;--tx:#f0f9ff;--tx2:#7dd3fc;--danger:#f87171;--robot:#ef4444}
+body.t3{background:linear-gradient(135deg,#1a0533,#2d1b69,#11998e);background-size:400% 400%;animation:gs 8s ease infinite;--a:#34d399;--a2:#059669;--g:#fbbf24;--cell:#fff1;--cb:#34d39925;--ch:#34d39935;--pan:#fff1;--pb:#34d39920;--tx:#f0fdf4;--tx2:#6ee7b7;--danger:#f87171;--robot:#ef4444}
+body.t4{background:linear-gradient(135deg,#1a001a,#330033,#660033);background-size:300% 300%;animation:gs 6s ease infinite;--a:#f472b6;--a2:#be185d;--g:#fde68a;--cell:#fff1;--cb:#f472b625;--ch:#f472b635;--pan:#fff1;--pb:#f472b620;--tx:#fdf2f8;--tx2:#f9a8d4;--danger:#fca5a5;--robot:#ef4444}
+body.t5{background:linear-gradient(135deg,#0a0a0a,#1a1a2e,#0f3460,#533483);background-size:400% 400%;animation:gs 10s ease infinite;--a:#f97316;--a2:#ea580c;--g:#fbbf24;--cell:#fff1;--cb:#f9731625;--ch:#f9731635;--pan:#fff1;--pb:#f9731620;--tx:#fff7ed;--tx2:#fdba74;--danger:#f87171;--robot:#ef4444}
+body.t6{background:linear-gradient(135deg,#001f3f,#003d7a,#0077b6,#00b4d8);background-size:500% 500%;animation:gs 7s ease infinite;--a:#00b4d8;--a2:#0077b6;--g:#fde68a;--cell:#fff2;--cb:#00b4d830;--ch:#00b4d840;--pan:#fff1;--pb:#00b4d828;--tx:#f0f9ff;--tx2:#7dd3fc;--danger:#f87171;--robot:#ef4444}
+/* Premium Themes */
+body.t7{background:linear-gradient(135deg,#1a0a2e,#4a148c,#7c4dff);background-size:400% 400%;animation:gs 8s ease infinite;--a:#e040fb;--a2:#aa00ff;--g:#ffea00;--cell:#fff1;--cb:#e040fb30;--ch:#e040fb40;--pan:#fff1;--pb:#e040fb25;--tx:#f3e5f5;--tx2:#ea80fc;--danger:#ff5252;--robot:#ff1744}
+body.t8{background:linear-gradient(135deg,#0d1b2a,#1b263b,#415a77);background-size:400% 400%;animation:gs 9s ease infinite;--a:#00d4aa;--a2:#00b894;--g:#fdcb6e;--cell:#fff1;--cb:#00d4aa30;--ch:#00d4aa40;--pan:#fff1;--pb:#00d4aa25;--tx:#dfe6e9;--tx2:#74b9ff;--danger:#ff7675;--robot:#d63031}
+body.t9{background:linear-gradient(135deg,#2d132c,#801336,#c72c41);background-size:400% 400%;animation:gs 7s ease infinite;--a:#ff6b6b;--a2:#ee5a6f;--g:#feca57;--cell:#fff1;--cb:#ff6b6b30;--ch:#ff6b6b40;--pan:#fff1;--pb:#ff6b6b25;--tx:#ffeaa7;--tx2:#fab1a0;--danger:#ff7675;--robot:#d63031}
+body.t10{background:linear-gradient(135deg,#0c2461,#0a3d62,#38ada9);background-size:400% 400%;animation:gs 10s ease infinite;--a:#82ccdd;--a2:#60a3bc;--g:#f8c291;--cell:#fff1;--cb:#82ccdd30;--ch:#82ccdd40;--pan:#fff1;--pb:#82ccdd25;--tx:#dff9fb;--tx2:#c7ecee;--danger:#ff6b6b;--robot:#eb4d4b}
+@keyframes gs{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.bg-p{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.par{position:absolute;border-radius:50%;animation:fp linear infinite;opacity:0}
+@keyframes fp{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.5}90%{opacity:.2}100%{transform:translateY(-20vh) scale(1.5);opacity:0}}
+
+.app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh;padding:10px;gap:8px;max-width:500px;margin:0 auto}
+
+/* ── HEADER ── */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;background:var(--pan);border:1px solid var(--pb);border-radius:15px;backdrop-filter:blur(14px);gap:8px}
+.logo{font-size:1rem;font-weight:900;background:linear-gradient(135deg,var(--a),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
+.menu-btn{font-size:1.3rem;cursor:pointer;padding:5px 10px;border-radius:10px;transition:all .2s;background:var(--cell);border:1px solid var(--cb)}
+.menu-btn:hover{background:var(--a)30;transform:scale(1.1)}
+
+/* ── SIDE MENU ── */
+.side-menu{position:fixed;top:0;right:-300px;width:280px;height:100vh;background:var(--pan);border-left:2px solid var(--a)40;z-index:1000;transition:right .3s ease;padding:20px;backdrop-filter:blur(20px);overflow-y:auto}
+.side-menu.show{right:0}
+.side-menu-overlay{position:fixed;inset:0;background:#0008;z-index:999;display:none}
+.side-menu-overlay.show{display:block}
+.side-menu-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:15px;border-bottom:1px solid var(--pb)}
+.side-menu-title{font-size:1.2rem;font-weight:800;color:var(--g)}
+.side-menu-close{font-size:1.5rem;cursor:pointer;color:var(--tx);padding:5px}
+.side-menu-item{display:flex;align-items:center;gap:12px;padding:12px;margin-bottom:8px;background:var(--cell);border:1px solid var(--cb);border-radius:12px;cursor:pointer;transition:all .2s;color:var(--tx);font-weight:700;font-size:.9rem}
+.side-menu-item:hover{background:var(--a)20;border-color:var(--a);transform:translateX(-5px)}
+.side-menu-item i{font-size:1.2rem}
+
+/* ── MODE SELECTOR ── */
+.mode-select{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;justify-content:center}
+.mode-btn{flex:1;min-width:100px;padding:10px 12px;border:2px solid var(--cb);background:var(--cell);border-radius:15px;color:var(--tx);font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.mode-btn:hover{border-color:var(--a)60;background:var(--a)15}
+.mode-btn.active{background:linear-gradient(135deg,var(--a2),var(--a));border-color:var(--a);color:#fff;box-shadow:0 4px 15px var(--a2)50}
+.mode-btn .icon{font-size:1rem}
+
+/* ── ROBOT PANEL ── */
+.robot-panel{display:none;padding:12px;background:linear-gradient(135deg,var(--robot)20,var(--robot)10);border:2px solid var(--robot)50;border-radius:15px;margin-bottom:10px}
+.robot-panel.show{display:block}
+.robot-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.robot-title{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--robot);font-size:1rem}
+.robot-avatar{font-size:2rem;animation:robotPulse 2s ease infinite}
+@keyframes robotPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.robot-score{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.score-box{text-align:center;padding:10px 20px;background:var(--cell);border-radius:12px;border:1px solid var(--cb);min-width:80px}
+.score-label{font-size:.7rem;color:var(--tx2);margin-bottom:3px}
+.score-value{font-size:1.3rem;font-weight:900}
+.score-user{color:var(--a)}
+.score-robot{color:var(--robot)}
+.score-draw{color:var(--g)}
+.robot-status{font-size:.8rem;color:var(--tx2);text-align:center;margin-top:8px;font-weight:700}
+
+/* ── MIN COINS WARNING ── */
+.min-coins-warning{display:none;padding:15px;background:linear-gradient(135deg,var(--danger)30,var(--danger)15);border:2px solid var(--danger);border-radius:15px;text-align:center;margin-bottom:10px}
+.min-coins-warning.show{display:block}
+.min-coins-warning .title{color:var(--danger);font-weight:800;font-size:1rem;margin-bottom:5px}
+.min-coins-warning .text{color:var(--tx);font-size:.85rem}
+
+/* XP bar */
+.xp-wrap{padding:0 13px 6px;display:flex;flex-direction:column;gap:3px}
+.xp-row{display:flex;justify-content:space-between;align-items:center}
+.xp-label{font-size:0.7rem;color:var(--tx2);font-weight:700}
+.rank-badge{font-size:0.7rem;font-weight:800;color:var(--g);background:var(--g)18;border:1px solid var(--g)40;border-radius:10px;padding:2px 8px}
+.xp-bar-bg{height:5px;background:#fff1;border-radius:10px;overflow:hidden}
+.xp-bar-fill{height:100%;background:linear-gradient(90deg,var(--a2),var(--a),var(--g));border-radius:10px;transition:width .5s cubic-bezier(.34,1.56,.64,1)}
+
+/* streak */
+.streak-row{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;padding:0 10px}
+.streak-chip{display:flex;align-items:center;gap:5px;background:var(--pan);border:1px solid var(--pb);border-radius:20px;padding:5px 11px;font-size:0.75rem;font-weight:700;color:var(--tx2);backdrop-filter:blur(10px)}
+.streak-chip .sv{color:var(--g);font-size:0.85rem;font-weight:900}
+.streak-chip.fire .sv{color:#f97316}
+
+/* Daily Challenge */
+.daily-challenge{display:none;padding:12px;background:linear-gradient(135deg,var(--g)20,var(--a)15);border:2px solid var(--g)50;border-radius:15px;margin-bottom:10px}
+.daily-challenge.show{display:block}
+.dc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.dc-title{font-size:.9rem;font-weight:800;color:var(--g)}
+.dc-reward{font-size:.75rem;color:var(--tx2)}
+.dc-progress{height:8px;background:#fff1;border-radius:10px;overflow:hidden;margin-top:5px}
+.dc-progress-fill{height:100%;background:linear-gradient(90deg,var(--g),var(--a));border-radius:10px;transition:width .5s}
+
+/* words top */
+.words-top{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;padding:9px 12px;background:var(--pan);border:1px solid var(--pb);border-radius:14px;backdrop-filter:blur(12px)}
+.wchip{padding:4px 11px;border-radius:20px;font-size:0.8rem;font-weight:700;background:var(--cell);border:1.5px solid var(--cb);color:var(--tx);transition:all .4s ease;cursor:default}
+.wchip.found{text-decoration:line-through;opacity:.5;transform:scale(.93)}
+.wchip.robot-found{border-color:var(--robot)!important;color:var(--robot)!important;background:var(--robot)20!important}
+.wchip.golden{border-color:var(--g)!important;color:var(--g)!important;animation:goldPulse 1.5s ease infinite}
+@keyframes goldPulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 14px var(--g)66}}
+
+/* timer */
+.timer-wrap{position:relative;padding:10px 14px;background:var(--pan);border:1px solid var(--pb);border-radius:14px;backdrop-filter:blur(12px);text-align:center}
+.timer-main{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px}
+.timer-val{font-size:1.5rem;font-weight:900;color:var(--tx);font-variant-numeric:tabular-nums;transition:color .3s}
+.timer-val.warn{color:#f97316;animation:timerWarn .5s ease infinite alternate}
+.timer-val.danger{color:var(--danger);animation:timerWarn .3s ease infinite alternate}
+@keyframes timerWarn{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+.timer-bar-bg{height:6px;background:#fff1;border-radius:10px;overflow:hidden}
+.timer-bar-fill{height:100%;border-radius:10px;transition:width .9s linear,background .5s}
+.robot-timer-badge{position:absolute;top:8px;left:14px;background:linear-gradient(135deg,var(--robot),#dc2626);border-radius:20px;padding:3px 9px;font-size:0.7rem;font-weight:800;color:#fff;display:none;animation:robotPulse 1s ease infinite alternate;box-shadow:0 2px 10px var(--robot)66}
+.robot-timer-badge.show{display:block}
+
+/* grid */
+.grid-wrap{display:flex;flex-direction:column;align-items:center;padding:14px;background:var(--pan);border:1px solid var(--pb);border-radius:18px;backdrop-filter:blur(16px);box-shadow:0 8px 40px #00000040;position:relative;overflow:hidden}
+.grid-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,var(--a)08,transparent 70%);pointer-events:none}
+.topic-tag{font-size:0.72rem;color:var(--tx2);font-weight:700;margin-bottom:10px;background:var(--cell);border:1px solid var(--cb);border-radius:8px;padding:3px 10px}
+#grid{display:grid;gap:4px;user-select:none;touch-action:none;position:relative;z-index:1}
+.cell{display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;font-family:'Tajawal',sans-serif;background:var(--cell);border:1.5px solid var(--cb);border-radius:9px;cursor:pointer;transition:all .15s ease;color:var(--tx);position:relative;overflow:hidden}
+.cell:hover{background:var(--ch);border-color:var(--a)60;transform:scale(1.05)}
+.cell.selecting{background:var(--a)30!important;border-color:var(--a)!important;transform:scale(.95);box-shadow:0 0 12px var(--a)66}
+.cell.found-cell{color:#fff!important;border-color:transparent!important}
+.cell.robot-found-cell{color:#fff!important;border-color:var(--robot)!important;box-shadow:0 0 12px var(--robot)80!important;background:var(--robot)!important}
+.cell.hint-first{animation:hf .9s ease}
+@keyframes hf{0%,100%{box-shadow:none}40%,60%{box-shadow:0 0 22px var(--g),0 0 44px var(--g)55;border-color:var(--g)!important;background:var(--g)30!important}}
+.cell.golden-cell{animation:goldCell 1s ease infinite alternate}
+@keyframes goldCell{0%{box-shadow:0 0 8px var(--g)66}100%{box-shadow:0 0 18px var(--g)cc}}
+.cell.robot-target{animation:robotTarget 1s ease infinite alternate;border-color:var(--robot)!important}
+@keyframes robotTarget{0%{box-shadow:0 0 10px var(--robot)66}100%{box-shadow:0 0 25px var(--robot)cc}}
+
+.prog-wrap{height:4px;background:#fff1;border-radius:10px;overflow:hidden;margin-top:10px;width:100%}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--a2),var(--a),var(--g));border-radius:10px;transition:width .6s cubic-bezier(.34,1.56,.64,1)}
+
+/* coins bar */
+.coins-bar{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--pan);border:1px solid var(--pb);border-radius:14px;backdrop-filter:blur(12px);gap:6px;flex-wrap:wrap}
+.coins-disp{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--g)22,var(--g)08);border:1.5px solid var(--g)50;border-radius:20px;padding:6px 13px;font-size:.9rem;font-weight:900;color:var(--g);box-shadow:0 2px 12px var(--g)30;white-space:nowrap}
+.hint-btns{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.hbtn{display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:11px;border:1.5px solid var(--cb);background:var(--cell);color:var(--tx);font-family:'Tajawal',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s ease;white-space:nowrap}
+.hbtn:hover:not(:disabled){border-color:var(--a)80;background:var(--a)20;transform:translateY(-2px);box-shadow:0 4px 12px var(--a)30}
+.hbtn:disabled{opacity:.3;cursor:not-allowed}
+.hbtn .cost{color:var(--g);font-size:.68rem;background:var(--g)18;border-radius:7px;padding:1px 5px;border:1px solid var(--g)30}
+.hbtn.pause{border-color:#fbbf2440;background:linear-gradient(135deg,#fbbf2420,#f59e0b20)}
+.hbtn.pause:hover:not(:disabled){border-color:#fbbf24;background:#fbbf2430;box-shadow:0 4px 12px #fbbf2430}
+.hbtn.freeze{border-color:#38bdf840;background:linear-gradient(135deg,#38bdf820,#0ea5e920)}
+.hbtn.freeze:hover:not(:disabled){border-color:#38bdf8;background:#38bdf830;box-shadow:0 4px 12px #38bdf830}
+
+/* toast */
+#toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-100px);background:#1e293bee;border:1px solid var(--a)40;border-radius:50px;padding:9px 20px;font-size:.85rem;font-weight:700;color:var(--tx);box-shadow:0 8px 32px #00000060;z-index:1000;transition:transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap;backdrop-filter:blur(10px)}
+#toast.show{transform:translateX(-50%) translateY(0)}
+
+/* modals */
+.modal-bg{display:none;position:fixed;inset:0;background:#000c;backdrop-filter:blur(12px);z-index:200;align-items:center;justify-content:center;padding:16px}
+.modal-bg.show{display:flex}
+.modal{background:var(--pan);border:1px solid var(--a)40;border-radius:26px;padding:30px 28px;text-align:center;max-width:340px;width:100%;box-shadow:0 0 80px var(--a)30;animation:mPop .45s cubic-bezier(.34,1.56,.64,1)}
+.modal.wide{max-width:400px}
+@keyframes mPop{0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}}
+.modal-emoji{font-size:2.8rem;display:block;margin-bottom:8px}
+.modal-title{font-size:1.6rem;font-weight:900;color:var(--g);margin-bottom:5px}
+.modal-sub{color:var(--tx2);font-size:.85rem;margin-bottom:18px;line-height:1.5}
+.modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.ms{background:var(--cell);border-radius:12px;padding:10px;border:1px solid var(--cb)}
+.ms-l{font-size:.68rem;color:var(--tx2);margin-bottom:3px}
+.ms-v{font-size:1.1rem;font-weight:900;color:var(--a)}
+.ms-v.lose{color:var(--danger)}
+.ms-v.win{color:var(--g)}
+.btn-primary{width:100%;padding:12px;background:linear-gradient(135deg,var(--a2),var(--a));border:none;border-radius:50px;color:#fff;font-family:'Tajawal',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 6px 24px var(--a2)50;transition:all .2s;margin-bottom:8px}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px var(--a2)60}
+.btn-secondary{width:100%;padding:10px;background:var(--cell);border:1.5px solid var(--cb);border-radius:50px;color:var(--tx);font-family:'Tajawal',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-secondary:hover{border-color:var(--a)60;background:var(--a)15}
+.btn-danger{width:100%;padding:12px;background:linear-gradient(135deg,#dc2626,#ef4444);border:none;border-radius:50px;color:#fff;font-family:'Tajawal',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 6px 24px #dc262650;transition:all .2s;margin-bottom:8px}
+.btn-danger:hover{transform:translateY(-2px);box-shadow:0 10px 32px #dc262660}
+
+/* Wheel Modal */
+.wheel-container{position:relative;width:280px;height:280px;margin:20px auto}
+.wheel{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#ff6b6b 0deg 36deg,#feca57 36deg 72deg,#48dbfb 72deg 108deg,#ff9ff3 108deg 144deg,#54a0ff 144deg 180deg,#5f27cd 180deg 216deg,#00d2d3 216deg 252deg,#ff9f43 252deg 288deg,#ee5a24 288deg 324deg,#10ac84 324deg 360deg);animation:none}
+.wheel.spin{animation:wheelSpin 3s cubic-bezier(.17,.67,.12,.99) forwards}
+@keyframes wheelSpin{0%{transform:rotate(0deg)}100%{transform:rotate(var(--spin-deg,1800deg))}}
+.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:var(--pan);border:3px solid var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;z-index:10;box-shadow:0 4px 20px #00000060}
+.wheel-pointer{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-top:25px solid var(--g);z-index:20;filter:drop-shadow(0 2px 4px #00000040)}
+.wheel-labels{position:absolute;inset:0}
+.wheel-label{position:absolute;font-size:.65rem;font-weight:800;color:#fff;text-shadow:0 1px 3px #00000080;transform-origin:center}
+
+/* Shop Modal */
+.shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.shop-item{background:var(--cell);border:1.5px solid var(--cb);border-radius:15px;padding:15px;text-align:center;cursor:pointer;transition:all .2s}
+.shop-item:hover{border-color:var(--a);background:var(--a)15;transform:translateY(-3px)}
+.shop-item.owned{border-color:var(--g);background:var(--g)15}
+.shop-item-emoji{font-size:2rem;margin-bottom:5px}
+.shop-item-name{font-size:.8rem;font-weight:700;color:var(--tx);margin-bottom:3px}
+.shop-item-price{font-size:.75rem;font-weight:800;color:var(--g)}
+.shop-item.owned .shop-item-price{color:var(--g)}
+
+/* Stats Modal */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.stat-box{background:var(--cell);border:1px solid var(--cb);border-radius:12px;padding:12px;text-align:center}
+.stat-value{font-size:1.5rem;font-weight:900;color:var(--a)}
+.stat-label{font-size:.7rem;color:var(--tx2);margin-top:3px}
+
+/* Leaderboard */
+.lb-item{display:flex;align-items:center;gap:10px;padding:10px;background:var(--cell);border:1px solid var(--cb);border-radius:12px;margin-bottom:8px}
+.lb-rank{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem}
+.lb-rank.gold{background:linear-gradient(135deg,#ffd700,#ffaa00);color:#000}
+.lb-rank.silver{background:linear-gradient(135deg,#c0c0c0,#808080);color:#000}
+.lb-rank.bronze{background:linear-gradient(135deg,#cd7f32,#8b4513);color:#fff}
+.lb-name{flex:1;font-size:.85rem;font-weight:700;color:var(--tx)}
+.lb-score{font-size:.9rem;font-weight:900;color:var(--g)}
+
+/* achievements popup */
+.ach-popup{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-100px);background:linear-gradient(135deg,var(--a2)ee,var(--a)ee);border-radius:50px;padding:10px 20px;font-size:.85rem;font-weight:800;color:#fff;box-shadow:0 8px 32px var(--a2)60;z-index:500;transition:transform .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap;backdrop-filter:blur(10px);display:flex;align-items:center;gap:8px}
+.ach-popup.show{transform:translateX(-50%) translateY(0)}
+
+/* coin float - تطير وتختفي */
+.cfloat{position:fixed;font-size:1.1rem;font-weight:900;color:var(--g);pointer-events:none;z-index:500;animation:cf 2.5s ease forwards;text-shadow:0 0 15px var(--g)aa}
+.robot-cfloat{position:fixed;font-size:1.1rem;font-weight:900;color:var(--robot);pointer-events:none;z-index:500;animation:cf 2.5s ease forwards;text-shadow:0 0 15px var(--robot)aa}
+.word-found-float{position:fixed;font-size:1.2rem;font-weight:900;color:var(--a);pointer-events:none;z-index:500;animation:wordFloat 3s ease forwards;text-shadow:0 0 15px var(--a)aa}
+.golden-float{position:fixed;font-size:1.4rem;font-weight:900;color:var(--g);pointer-events:none;z-index:500;animation:goldenFloat 3.5s ease forwards;text-shadow:0 0 20px var(--g)cc, 0 0 40px var(--g)66}
+.combo-float{position:fixed;font-size:1.3rem;font-weight:900;color:#f97316;pointer-events:none;z-index:500;animation:comboFloat 2.5s ease forwards;text-shadow:0 0 15px #f97316aa}
+.xp-float{position:fixed;font-size:1rem;font-weight:800;color:var(--tx2);pointer-events:none;z-index:500;animation:xpFloat 2.5s ease forwards;text-shadow:0 0 10px var(--a)80}
+@keyframes cf{0%{opacity:1;transform:translateY(0) scale(1)}50%{opacity:1;transform:translateY(-40px) scale(1.2)}100%{opacity:0;transform:translateY(-90px) scale(0.8)}}
+@keyframes wordFloat{0%{opacity:0;transform:translateY(20px) scale(0.5)}20%{opacity:1;transform:translateY(-10px) scale(1.2)}70%{opacity:1;transform:translateY(-60px) scale(1)}100%{opacity:0;transform:translateY(-120px) scale(0.7)}}
+@keyframes goldenFloat{0%{opacity:0;transform:translateY(30px) scale(0.3) rotate(-10deg)}25%{opacity:1;transform:translateY(-20px) scale(1.3) rotate(5deg)}60%{transform:translateY(-60px) scale(1.1) rotate(-3deg)}80%{opacity:1;transform:translateY(-90px) scale(1)}100%{opacity:0;transform:translateY(-140px) scale(0.6)}}
+@keyframes comboFloat{0%{opacity:0;transform:translateY(0) scale(0)}30%{opacity:1;transform:translateY(-30px) scale(1.4)}70%{opacity:1;transform:translateY(-70px) scale(1.1)}100%{opacity:0;transform:translateY(-120px) scale(0.8)}}
+@keyframes xpFloat{0%{opacity:0;transform:translateY(0)}30%{opacity:1;transform:translateY(-25px)}80%{opacity:1}100%{opacity:0;transform:translateY(-80px)}}
+
+/* combo */
+.combo-disp{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);z-index:600;font-size:2.5rem;font-weight:900;color:var(--g);text-shadow:0 0 30px var(--g)88;pointer-events:none;transition:none}
+.combo-disp.pop{animation:comboPop .8s ease forwards}
+@keyframes comboPop{0%{transform:translate(-50%,-50%) scale(0);opacity:1}30%{transform:translate(-50%,-50%) scale(1.3)}70%{transform:translate(-50%,-50%) scale(1.1)}100%{transform:translate(-50%,-50%) scale(0);opacity:0}}
+
+#level-flash{position:fixed;inset:0;z-index:300;background:var(--a);opacity:0;pointer-events:none;transition:opacity .3s}
+#level-flash.flash{opacity:.2}
+
+/* pause overlay */
+.pause-overlay{position:fixed;inset:0;background:#000a;backdrop-filter:blur(8px);z-index:150;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px}
+.pause-overlay.show{display:flex}
+.pause-title{font-size:2rem;font-weight:900;color:var(--g);text-shadow:0 0 20px var(--g)66}
+.pause-btn{padding:15px 40px;background:linear-gradient(135deg,var(--a2),var(--a));border:none;border-radius:50px;color:#fff;font-family:'Tajawal',sans-serif;font-size:1.1rem;font-weight:800;cursor:pointer;box-shadow:0 6px 24px var(--a2)50;transition:all .2s}
+.pause-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px var(--a2)60}
+
+/* robot found animation */
+.robot-found-anim{position:fixed;z-index:400;pointer-events:none;font-size:1.5rem;font-weight:900;color:var(--robot);text-shadow:0 0 20px var(--robot)88;animation:robotFoundAnim 1.5s ease forwards}
+@keyframes robotFoundAnim{0%{opacity:0;transform:scale(0)}20%{opacity:1;transform:scale(1.5)}80%{opacity:1;transform:scale(1.2) translateY(-30px)}100%{opacity:0;transform:scale(1) translateY(-60px)}}
+
+/* Freeze effect */
+.freeze-effect{position:fixed;inset:0;background:linear-gradient(180deg,#38bdf820,#0ea5e320);z-index:250;pointer-events:none;animation:freezeAnim 3s ease forwards}
+@keyframes freezeAnim{0%{opacity:0}20%{opacity:1}80%{opacity:1}100%{opacity:0}}
+.freeze-ice{position:fixed;font-size:4rem;pointer-events:none;z-index:260;animation:iceAnim 3s ease forwards}
+@keyframes iceAnim{0%{opacity:0;transform:scale(0) rotate(-180deg)}30%{opacity:1;transform:scale(1.2) rotate(0)}70%{opacity:1;transform:scale(1) rotate(10deg)}100%{opacity:0;transform:scale(0) rotate(180deg)}}
+
+/* Daily Bonus */
+.daily-bonus{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);z-index:700;background:linear-gradient(135deg,var(--g),#f59e0b);border-radius:20px;padding:20px 30px;text-align:center;box-shadow:0 0 50px var(--g)66;animation:dailyBonusPop 2s ease forwards}
+@keyframes dailyBonusPop{0%{transform:translate(-50%,-50%) scale(0)}20%{transform:translate(-50%,-50%) scale(1.1)}30%{transform:translate(-50%,-50%) scale(1)}80%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-50%) scale(0.8);opacity:0}}
+.daily-bonus-emoji{font-size:3rem}
+.daily-bonus-text{font-size:1.2rem;font-weight:800;color:#fff}
+.daily-bonus-amount{font-size:1.5rem;font-weight:900;color:#fff}
+
+/* Streak Fire Animation */
+.streak-fire{position:fixed;pointer-events:none;z-index:500;animation:streakFire 2s ease forwards}
+@keyframes streakFire{0%{opacity:0;transform:scale(0)}30%{opacity:1;transform:scale(1.5)}70%{opacity:1;transform:scale(1.2)}100%{opacity:0;transform:scale(0)}}
+
+/* Level Progress Badge */
+.level-badge{display:inline-flex;align-items:center;gap:5px;background:var(--a)20;border:1px solid var(--a)50;border-radius:15px;padding:4px 12px;font-size:.75rem;font-weight:700;color:var(--a)}
+
+/* Star Rating */
+.star-rating{display:flex;justify-content:center;gap:5px;margin:10px 0}
+.star{font-size:1.5rem;color:#fff3;transition:all .3s}
+.star.earned{color:var(--g);text-shadow:0 0 10px var(--g)80;animation:starEarned .5s ease}
+@keyframes starEarned{0%{transform:scale(0)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+
+/* ── DARK MODE ── */
+body.dark{background:#0a0a0a!important;--a:#a78bfa;--a2:#7c3aed;--g:#fbbf24;--cell:#ffffff10;--cb:#ffffff18;--ch:#ffffff22;--pan:#ffffff08;--pb:#ffffff12;--tx:#f1f5f9;--tx2:#94a3b8;--danger:#f87171;--robot:#ef4444}
+body.dark .grid-wrap{box-shadow:0 8px 40px #00000080}
+
+/* ── شاشة اختيار الوضع ── */
+.mode-select-screen{position:fixed;inset:0;z-index:900;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);flex-direction:column;gap:20px;padding:20px}
+.mode-select-screen.hidden{display:none}
+.mss-logo{font-size:2rem;font-weight:900;background:linear-gradient(135deg,#a78bfa,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;text-align:center}
+.mss-title{font-size:1.1rem;font-weight:700;color:#c4b5fd;text-align:center;margin-bottom:10px}
+.mss-cards{display:flex;flex-direction:column;gap:14px;width:100%;max-width:340px}
+.mss-card{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:20px;cursor:pointer;transition:all .2s;border:2px solid transparent;position:relative;overflow:hidden}
+.mss-card:hover{transform:translateY(-3px)}
+.mss-card.solo{background:linear-gradient(135deg,#7c3aed30,#a78bfa20);border-color:#a78bfa50}
+.mss-card.solo:hover{border-color:#a78bfa;box-shadow:0 8px 30px #7c3aed40}
+.mss-card.speed{background:linear-gradient(135deg,#ea580c30,#f9731620);border-color:#f9731650}
+.mss-card.speed:hover{border-color:#f97316;box-shadow:0 8px 30px #ea580c40}
+.mss-card.robot{background:linear-gradient(135deg,#dc262630,#ef444420);border-color:#ef444450}
+.mss-card.robot:hover{border-color:#ef4444;box-shadow:0 8px 30px #dc262640}
+.mss-card-icon{font-size:2.2rem;flex-shrink:0}
+.mss-card-info{flex:1}
+.mss-card-name{font-size:1.1rem;font-weight:800;color:#f1f5f9}
+.mss-card-desc{font-size:.78rem;color:#94a3b8;margin-top:3px}
+.mss-card-badge{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:.65rem;font-weight:800;padding:3px 8px;border-radius:20px}
+.mss-card.solo .mss-card-badge{background:#a78bfa20;color:#a78bfa;border:1px solid #a78bfa40}
+.mss-card.speed .mss-card-badge{background:#f9731620;color:#f97316;border:1px solid #f9731640}
+.mss-card.robot .mss-card-badge{background:#ef444420;color:#ef4444;border:1px solid #ef444440}
+
+/* ── أزرار وضع أثناء اللعب ── */
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.mode-btn.locked{opacity:.5;cursor:not-allowed}
+.mode-btn.locked:hover{transform:none;background:var(--cell);border-color:var(--cb)}
+
+/* ── inventory badges على الأزرار ── */
+.inv-badge{display:inline-block;background:var(--g);color:#000;border-radius:10px;padding:1px 6px;font-size:.65rem;font-weight:900;margin-right:2px}
+
+/* ── زر الكشف ── */
+.hbtn.reveal{border-color:#a78bfa40;background:linear-gradient(135deg,#a78bfa15,#7c3aed10)}
+.hbtn.reveal:hover:not(:disabled){border-color:#a78bfa;background:#a78bfa25;box-shadow:0 4px 12px #7c3aed30}
+
+/* ── مؤشر حجم الشبكة ── */
+.size-indicator{font-size:.65rem;font-weight:700;color:var(--tx2);background:var(--cell);border:1px solid var(--cb);border-radius:8px;padding:2px 8px;margin-bottom:6px}
+
+/* ── نافذة نهاية اللعبة الموحدة ── */
+#end-btn-speed{background:linear-gradient(135deg,#ea580c,#f97316)!important;margin-bottom:0}
+#end-btn-robot{background:linear-gradient(135deg,#dc2626,#ef4444)!important;margin-bottom:0}
+#end-btn-solo{margin-bottom:0}
+
+/* ── القلوب (الوضع الفردي فقط) ── */
+.hearts-bar{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;background:var(--pan);border:1px solid var(--pb);border-radius:14px;backdrop-filter:blur(12px)}
+.heart{font-size:1.4rem;transition:all .3s;filter:drop-shadow(0 0 6px #ef444466)}
+.heart.lost{filter:grayscale(1);opacity:.3;transform:scale(.85)}
+.heart-regen{font-size:.65rem;color:var(--tx2);font-weight:700;text-align:center}
+@keyframes heartLose{0%{transform:scale(1)}30%{transform:scale(1.4)}60%{transform:scale(.8)}100%{transform:scale(.85)}}
+@keyframes heartGain{0%{transform:scale(0)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+
+/* ── المتجر ── */
+.shop-modal-inner{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;max-height:55vh;overflow-y:auto}
+.shop-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--cell);border:1.5px solid var(--cb);border-radius:14px;cursor:pointer;transition:all .2s}
+.shop-row:hover{border-color:var(--a);background:var(--a)15;transform:translateX(-3px)}
+.shop-row.owned{border-color:var(--g);background:var(--g)10;cursor:default}
+.shop-row-icon{font-size:1.6rem;flex-shrink:0}
+.shop-row-info{flex:1}
+.shop-row-name{font-size:.88rem;font-weight:800;color:var(--tx)}
+.shop-row-desc{font-size:.7rem;color:var(--tx2);margin-top:2px}
+.shop-row-price{font-size:.85rem;font-weight:900;color:var(--g);flex-shrink:0}
+.shop-row.owned .shop-row-price{color:var(--a)}
+
+/* ── زر تجميد الروبوت ── */
+.hbtn.freeze-robot{border-color:#ef444440;background:linear-gradient(135deg,#ef444415,#dc262610)}
+.hbtn.freeze-robot:hover:not(:disabled){border-color:#ef4444;background:#ef444425;box-shadow:0 4px 12px #dc262630}
+</style>
+</head>
+<body class="t1">
+<div class="bg-p" id="particles"></div>
+<div id="level-flash"></div>
+<div class="combo-disp" id="combo-disp"></div>
+
+<!-- ══ شاشة اختيار الوضع ══ -->
+<div class="mode-select-screen" id="mode-select-screen">
+  <div class="mss-logo">🔤 كلمات متشابكة</div>
+  <div class="mss-title">اختر وضع اللعب</div>
+  <div class="mss-cards">
+    <div class="mss-card solo" onclick="chooseModeAndStart('solo')">
+      <div class="mss-card-icon">🎮</div>
+      <div class="mss-card-info">
+        <div class="mss-card-name">وضع فردي</div>
+        <div class="mss-card-desc">تقدم تدريجي من 6×6 حتى 9×9 · مراحل بدون ضغط</div>
+      </div>
+      <div class="mss-card-badge">مستوياتك محفوظة</div>
+    </div>
+    <div class="mss-card speed" onclick="chooseModeAndStart('speed')">
+      <div class="mss-card-icon">⚡</div>
+      <div class="mss-card-info">
+        <div class="mss-card-name">وضع السرعة</div>
+        <div class="mss-card-desc">60 ثانية فقط · مستويات عشوائية · ركز وسرّع!</div>
+      </div>
+      <div class="mss-card-badge">عشوائي</div>
+    </div>
+    <div class="mss-card robot" onclick="chooseModeAndStart('robot')">
+      <div class="mss-card-icon">🤖</div>
+      <div class="mss-card-info">
+        <div class="mss-card-name">ضد الروبوت</div>
+        <div class="mss-card-desc">تنافس الروبوت · الفوز: +100🪙 · الخسارة: -100🪙</div>
+      </div>
+      <div class="mss-card-badge">يحتاج 100🪙</div>
+    </div>
+  </div>
+</div>
+
+<!-- Side Menu Overlay -->
+<div class="side-menu-overlay" id="side-menu-overlay" onclick="closeSideMenu()"></div>
+
+<!-- Side Menu -->
+<div class="side-menu" id="side-menu">
+  <div class="side-menu-header">
+    <span class="side-menu-title">⚙️ القائمة</span>
+    <span class="side-menu-close" onclick="closeSideMenu()">✕</span>
+  </div>
+  <div class="side-menu-item" onclick="openWheel()">
+    <span>🎁</span>
+    <span>عجلة الحظ</span>
+  </div>
+  <div class="side-menu-item" onclick="openAchievements()">
+    <span>🏅</span>
+    <span>الإنجازات</span>
+  </div>
+  <div class="side-menu-item" onclick="openStats()">
+    <span>📊</span>
+    <span>الإحصائيات</span>
+  </div>
+  <div class="side-menu-item" onclick="openLeaderboard()">
+    <span>🏆</span>
+    <span>المتصدرين</span>
+  </div>
+  <div class="side-menu-item" onclick="toggleDarkMode()">
+    <span id="dark-icon">🌙</span>
+    <span id="dark-label">الوضع الليلي</span>
+  </div>
+  <div class="side-menu-item" onclick="goToModeScreen()">
+    <span>🔄</span>
+    <span>تغيير وضع اللعب</span>
+  </div>
+  <div class="side-menu-item" onclick="shareApp()">
+    <span>📤</span>
+    <span>مشاركة التطبيق</span>
+  </div>
+  <div class="side-menu-item" onclick="resetGame()">
+    <span>🗑️</span>
+    <span>إعادة تعيين اللعبة</span>
+  </div>
+</div>
+
+<div class="pause-overlay" id="pause-overlay">
+  <div class="pause-title">⏸️ متوقف</div>
+  <button class="pause-btn" onclick="togglePause()">▶️ استمرار</button>
+</div>
+
+<div class="app">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="menu-btn" onclick="openSideMenu()">☰</div>
+    <div class="logo">🔤 كلمات متشابكة</div>
+    <div style="font-size:.75rem;font-weight:700;color:var(--tx2)" id="hdr-streak">🔥 0</div>
+  </div>
+
+  <!-- Mode Selector -->
+  <div class="mode-select">
+    <button class="mode-btn active" id="btn-solo" onclick="setMode('solo')">
+      <span class="icon">🎮</span>
+      <span>فردي</span>
+    </button>
+    <button class="mode-btn" id="btn-speed" onclick="setMode('speed')">
+      <span class="icon">⚡</span>
+      <span>سرعة</span>
+    </button>
+    <button class="mode-btn" id="btn-robot" onclick="setMode('robot')">
+      <span class="icon">🤖</span>
+      <span>روبوت</span>
+    </button>
+  </div>
+
+  <!-- Daily Challenge -->
+  <div class="daily-challenge" id="daily-challenge">
+    <div class="dc-header">
+      <span class="dc-title">📋 تحدي اليوم</span>
+      <span class="dc-reward" id="dc-reward">+50🪙</span>
+    </div>
+    <div class="dc-desc" id="dc-desc" style="font-size:.8rem;color:var(--tx);margin-bottom:5px">اكتشف 5 كلمات في وضع الروبوت</div>
+    <div class="dc-progress">
+      <div class="dc-progress-fill" id="dc-progress" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Min Coins Warning -->
+  <div class="min-coins-warning" id="min-coins-warning">
+    <div class="title">⚠️ رصيد غير كافٍ</div>
+    <div class="text" id="min-coins-text">يجب أن يكون لديك 100 عملة على الأقل للعب ضد الروبوت</div>
+  </div>
+
+  <!-- Robot Panel -->
+  <div class="robot-panel" id="robot-panel">
+    <div class="robot-header">
+      <div class="robot-title">
+        <span class="robot-avatar">🤖</span>
+        <span>الخصم</span>
+      </div>
+      <div style="font-size:.75rem;color:var(--tx2);font-weight:700">🎯 من يجد أكثر يفوز!</div>
+    </div>
+    <div class="robot-score">
+      <div class="score-box">
+        <div class="score-label">أنت</div>
+        <div class="score-value score-user" id="user-score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">التعادل</div>
+        <div class="score-value score-draw" id="draw-score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">الروبوت</div>
+        <div class="score-value score-robot" id="robot-score">0</div>
+      </div>
+    </div>
+    <div class="robot-status" id="robot-status">🏁 بانتظار بدء اللعبة...</div>
+  </div>
+
+  <!-- XP -->
+  <div class="xp-wrap">
+    <div class="xp-row">
+      <span class="xp-label">✨ الخبرة: <span id="xp-val">0</span> / <span id="xp-max">100</span></span>
+      <span class="rank-badge" id="rank-badge">مبتدئ</span>
+    </div>
+    <div class="xp-bar-bg"><div class="xp-bar-fill" id="xp-bar" style="width:0%"></div></div>
+  </div>
+
+  <!-- Streak row -->
+  <div class="streak-row">
+    <div class="streak-chip fire">🔥 سلسلة: <span class="sv" id="streak-val">0</span> يوم</div>
+    <div class="streak-chip">🏅 إنجازات: <span class="sv" id="ach-count">0</span></div>
+    <div class="streak-chip">💥 كومبو: <span class="sv" id="combo-val">×1</span></div>
+  </div>
+
+  <!-- القلوب - الوضع الفردي فقط -->
+  <div class="hearts-bar" id="hearts-bar" style="display:none">
+    <span class="heart" id="heart-1">❤️</span>
+    <span class="heart" id="heart-2">❤️</span>
+    <span class="heart" id="heart-3">❤️</span>
+    <span class="heart-regen" id="heart-regen-timer"></span>
+  </div>
+
+  <!-- Words top -->
+  <div class="words-top" id="words-top"></div>
+
+  <!-- Timer -->
+  <div class="timer-wrap">
+    <div class="robot-timer-badge" id="robot-timer-badge">🤖 وجد كلمة!</div>
+    <div class="timer-main">
+      <span style="font-size:1rem">⏱</span>
+      <span class="timer-val" id="timer-val">05:00</span>
+      <span style="font-size:.7rem;color:var(--tx2);font-weight:700" id="timer-mode">وقت المرحلة</span>
+    </div>
+    <div class="timer-bar-bg">
+      <div class="timer-bar-fill" id="timer-bar" style="width:100%;background:linear-gradient(90deg,var(--a2),var(--a))"></div>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid-wrap">
+    <div class="topic-tag" id="topic-tag">🎯 الموضوع</div>
+    <div class="size-indicator" id="size-label">6×6</div>
+    <div id="grid"></div>
+    <div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Coins + Hints -->
+  <div class="coins-bar">
+    <div class="coins-disp" onclick="openShop()" style="cursor:pointer" title="المتجر">🪙 <span id="coins-val">200</span> 🛒</div>
+    <div class="hint-btns" id="hint-btns">
+      <button class="hbtn pause" id="btn-pause" onclick="togglePause()">⏸️</button>
+      <button class="hbtn freeze" id="btn-freeze" onclick="useFreeze()">❄️ <span id="freeze-label">50🪙</span></button>
+      <button class="hbtn freeze-robot" id="btn-freeze-robot" onclick="freezeRobot()" style="display:none">🥶 <span id="freeze-robot-label">جمّد الروبوت</span></button>
+      <button class="hbtn" id="btn-hint" onclick="useHint()">💡 <span id="hint-label">50🪙</span></button>
+      <button class="hbtn reveal" id="btn-reveal" onclick="useReveal()" style="display:none">👁️ <span id="reveal-label">0</span></button>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<!-- ══ نافذة نهاية اللعبة الموحدة ══ -->
+<div class="modal-bg" id="end-modal">
+  <div class="modal wide">
+    <div id="end-emoji" style="font-size:2.8rem;margin-bottom:8px">🏆</div>
+    <div class="modal-title" id="end-title">رائع!</div>
+    <div class="modal-sub" id="end-sub"></div>
+    <div class="modal-stats" id="end-stats"></div>
+
+    <!-- اختيار الوضع التالي -->
+    <div style="font-size:.8rem;font-weight:700;color:var(--tx2);margin:12px 0 8px;text-align:center">اختر الوضع التالي:</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <button class="btn-primary" id="end-btn-solo" onclick="endChooseMode('solo')">🎮 فردي — استمر في المراحل</button>
+      <button class="btn-primary" id="end-btn-speed" style="background:linear-gradient(135deg,#ea580c,#f97316)" onclick="endChooseMode('speed')">⚡ سرعة — 60 ثانية!</button>
+      <button class="btn-primary" id="end-btn-robot" style="background:linear-gradient(135deg,#dc2626,#ef4444)" onclick="endChooseMode('robot')">🤖 روبوت — تحدِّ الذكاء!</button>
+    </div>
+  </div>
+</div>
+
+<!-- Win Modal (solo - redirects to end-modal) -->
+<div class="modal-bg" id="win-modal" style="display:none"></div>
+
+<!-- ══ المتجر ══ -->
+<div class="modal-bg" id="shop-modal">
+  <div class="modal wide">
+    <div style="font-size:2rem;margin-bottom:6px">🛒</div>
+    <div class="modal-title">المتجر</div>
+    <div class="modal-sub">رصيدك: <span id="shop-coins-display">0</span>🪙</div>
+    <div class="shop-modal-inner" id="shop-list"></div>
+    <button class="btn-secondary" onclick="closeModal('shop-modal')">إغلاق</button>
+  </div>
+</div>
+
+<!-- Wheel Modal -->
+<div class="modal-bg" id="wheel-modal">
+  <div class="modal wide">
+    <span class="modal-emoji">🎁</span>
+    <div class="modal-title">عجلة الحظ</div>
+    <div class="modal-sub">لف مرة واحدة يومياً مجاناً!</div>
+    <div class="wheel-container">
+      <div class="wheel-pointer"></div>
+      <div class="wheel" id="wheel"></div>
+      <div class="wheel-center">🎯</div>
+    </div>
+    <button class="btn-primary" id="wheel-btn" onclick="spinWheel()">🎰 لف العجلة</button>
+    <button class="btn-secondary" onclick="closeModal('wheel-modal')">إغلاق</button>
+  </div>
+</div>
+
+<!-- Stats Modal -->
+<div class="modal-bg" id="stats-modal">
+  <div class="modal wide">
+    <span class="modal-emoji">📊</span>
+    <div class="modal-title">إحصائياتك</div>
+    <div class="stats-grid" id="stats-grid">
+      <!-- Stats will be generated by JS -->
+    </div>
+    <button class="btn-secondary" onclick="closeModal('stats-modal')">إغلاق</button>
+  </div>
+</div>
+
+<!-- Leaderboard Modal -->
+<div class="modal-bg" id="leaderboard-modal">
+  <div class="modal wide">
+    <span class="modal-emoji">🏆</span>
+    <div class="modal-title">المتصدرين</div>
+    <div class="modal-sub">أفضل اللاعبين هذا الأسبوع</div>
+    <div id="leaderboard-list">
+      <!-- Leaderboard will be generated by JS -->
+    </div>
+    <button class="btn-secondary" onclick="closeModal('leaderboard-modal')">إغلاق</button>
+  </div>
+</div>
+
+<!-- Privacy Modal -->
+<div class="modal-bg" id="privacy-modal">
+  <div class="modal" style="max-width:90%;max-height:80vh;overflow-y:auto">
+    <span class="modal-emoji">🔒</span>
+    <div class="modal-title">سياسة الخصوصية</div>
+    <div class="modal-sub" style="text-align:right;font-size:.8rem;line-height:1.8">
+      <p><strong>1. جمع البيانات:</strong> لا نقوم بجمع أي بيانات شخصية من المستخدمين.</p>
+      <p><strong>2. التخزين المحلي:</strong> يتم حفظ تقدم اللعبة فقط على جهازك.</p>
+      <p><strong>3. الإعلانات:</strong> لا تحتوي اللعبة على إعلانات خارجية.</p>
+      <p><strong>4. المشاركة:</strong> لا نقوم بمشاركة أي معلومات مع أطراف ثالثة.</p>
+      <p><strong>5. الأمان:</strong> نحن نهتم بأمان بياناتك.</p>
+    </div>
+    <button class="btn-primary" onclick="closeModal('privacy-modal')">فهمت</button>
+  </div>
+</div>
+
+<!-- Terms Modal -->
+<div class="modal-bg" id="terms-modal">
+  <div class="modal" style="max-width:90%;max-height:80vh;overflow-y:auto">
+    <span class="modal-emoji">📋</span>
+    <div class="modal-title">شروط الاستخدام</div>
+    <div class="modal-sub" style="text-align:right;font-size:.8rem;line-height:1.8">
+      <p><strong>1. الاستخدام:</strong> يجب استخدام اللعبة لأغراض ترفيهية فقط.</p>
+      <p><strong>2. العمر:</strong> اللعبة مناسبة لجميع الأعمار.</p>
+      <p><strong>3. التعديل:</strong> نحتفظ بالحق في تعديل هذه الشروط.</p>
+      <p><strong>4. المسؤولية:</strong> نحن غير مسؤولين عن أي استخدام غير مناسب.</p>
+    </div>
+    <button class="btn-primary" onclick="closeModal('terms-modal')">فهمت</button>
+  </div>
+</div>
+
+<!-- Achievements List Modal -->
+<div class="modal-bg" id="ach-list-modal">
+  <div class="modal wide" style="max-height:80vh;overflow-y:auto">
+    <span class="modal-emoji">🏅</span>
+    <div class="modal-title">الإنجازات</div>
+    <div id="ach-list-content" style="text-align:right;margin-bottom:15px"></div>
+    <button class="btn-secondary" onclick="closeModal('ach-list-modal')">إغلاق</button>
+  </div>
+</div>
+
+<!-- Achievements Popup Modal (new unlock) -->
+<div class="modal-bg" id="ach-modal">
+  <div class="modal">
+    <span class="modal-emoji" id="ach-emoji">🏅</span>
+    <div class="modal-title">إنجاز جديد!</div>
+    <div class="modal-sub" id="ach-msg">-</div>
+    <button class="btn-primary" onclick="closeAch()">رائع! ✨</button>
+  </div>
+</div>
+
+<!-- Mystery Box Modal -->
+<div class="modal-bg" id="mystery-modal">
+  <div class="modal">
+    <div class="modal-emoji" id="mystery-box-emoji" style="font-size:3rem;transition:all .1s">🎁</div>
+    <div class="modal-title" style="color:var(--g)">صندوق الغموض!</div>
+    <div class="modal-sub">كل 3 مراحل تحصل على مكافأة عشوائية!</div>
+    <div id="mystery-prize-display" style="font-size:4rem;margin:15px 0;min-height:60px;display:flex;align-items:center;justify-content:center">❓</div>
+    <div id="mystery-prize-text" style="font-size:1rem;font-weight:800;color:var(--a);margin-bottom:18px;min-height:24px;text-align:center"></div>
+    <button class="btn-primary" id="mystery-btn" onclick="openMysteryBox()">🎰 افتح الصندوق!</button>
+  </div>
+</div>
+
+<div class="ach-popup" id="ach-popup"></div>
+
+<script>
+// ══════════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════════
+
+// مراحل الوضع الفردي: تدرج من 6×6 → 9×9
+const LEVELS=[
+  {size:6,theme:'t1',topic:'الحيوانات 🐾',words:['أسد','نمر','ثعلب','ذئب','حصان','فيل']},
+  {size:6,theme:'t2',topic:'الفواكه 🍎',words:['تفاح','عنب','مانجو','برتقال','موز','خوخ']},
+  {size:6,theme:'t3',topic:'الألوان 🎨',words:['أحمر','أصفر','أخضر','أزرق','أبيض','وردي']},
+  {size:6,theme:'t4',topic:'المدن 🏙️',words:['القاهرة','دبي','الرياض','بيروت','عمان','تونس']},
+  {size:6,theme:'t5',topic:'الطعام 🍽️',words:['خبز','أرز','لحم','سمك','جبنة','بيض']},
+  {size:6,theme:'t6',topic:'الجسم 🫀',words:['قلب','كبد','رئة','دماغ','يد','عين']},
+  {size:7,theme:'t1',topic:'الكواكب 🪐',words:['الأرض','المريخ','الزهرة','زحل','المشتري','عطارد','أورانوس']},
+  {size:7,theme:'t2',topic:'الرياضة ⚽',words:['كرة','سباحة','جري','تنس','ملاكمة','فروسية','غوص']},
+  {size:7,theme:'t3',topic:'الطبيعة 🌿',words:['جبل','نهر','بحر','صحراء','غابة','بركان','وادي']},
+  {size:7,theme:'t4',topic:'المهن 👩‍⚕️',words:['طبيب','مهندس','معلم','محامي','طيار','صحفي','فنان']},
+  {size:7,theme:'t5',topic:'الفصول 🌸',words:['ربيع','صيف','خريف','شتاء','أمطار','ثلوج','رياح']},
+  {size:7,theme:'t6',topic:'التكنولوجيا 💻',words:['حاسوب','هاتف','إنترنت','كاميرا','طابعة','شاشة','لوحة']},
+  {size:7,theme:'t7',topic:'الأثاث 🛋️',words:['كرسي','طاولة','سرير','خزانة','مرآة','باب','نافذة']},
+  {size:8,theme:'t1',topic:'الدول 🌍',words:['مصر','سوريا','الأردن','المغرب','السودان','ليبيا','العراق','إيران']},
+  {size:8,theme:'t2',topic:'العلوم 🔬',words:['فيزياء','كيمياء','رياضيات','أحياء','جيولوجيا','فلك','طب','هندسة']},
+  {size:8,theme:'t3',topic:'الموسيقى 🎵',words:['بيانو','كمان','غيتار','طبلة','ناي','عود','مزمار','قيثارة']},
+  {size:8,theme:'t4',topic:'البحر 🌊',words:['قرش','دلفين','حوت','أخطبوط','سرطان','سمك','مرجان','لؤلؤ']},
+  {size:8,theme:'t5',topic:'التاريخ 📜',words:['فرعون','روما','بابل','أثينا','الصين','الهند','فارس','مصر']},
+  {size:8,theme:'t6',topic:'الفضاء 🚀',words:['نجمة','قمر','شمس','مجرة','كوكب','نيزك','ثقب','سديم']},
+  {size:8,theme:'t7',topic:'الطيور 🦅',words:['نسر','صقر','بومة','بلبل','عصفور','طاووس','بط','وز']},
+  {size:8,theme:'t8',topic:'الزهور 🌺',words:['ورد','ياسمين','توليب','زنبق','نرجس','خزامى','عنبر','بنفسج']},
+  {size:9,theme:'t9',topic:'الأدوات 🛠️',words:['مطرقة','مفك','منشار','ميزان','مسطرة','مقص','مثقاب','ملقط','مشبك']},
+  {size:9,theme:'t10',topic:'المشروبات ☕',words:['شاي','قهوة','عصير','ماء','لبن','سودا','نيسكافيه','كابتشينو','كركديه']},
+  {size:9,theme:'t7',topic:'الرياضيات 📐',words:['جمع','طرح','ضرب','قسمة','كسور','هندسة','جبر','حساب','إحصاء']},
+  {size:9,theme:'t8',topic:'الأماكن 🗺️',words:['مسجد','مدرسة','مستشفى','سوق','ملعب','مكتبة','متحف','مطار','ميناء']},
+  {size:9,theme:'t9',topic:'العواطف 💭',words:['فرح','حزن','غضب','خوف','حب','كره','دهشة','سعادة','قلق']},
+  {size:9,theme:'t10',topic:'الحشرات 🦋',words:['نملة','نحلة','فراشة','ذبابة','بعوضة','صرصور','جندب','دودة','خنفساء']},
+];
+
+// مستويات عشوائية للروبوت والسرعة (7×7 و8×8 فقط لصعوبة متوسطة)
+const RANDOM_POOL=[
+  {size:7,theme:'t1',topic:'الكواكب 🪐',words:['الأرض','المريخ','الزهرة','زحل','المشتري','عطارد','أورانوس']},
+  {size:7,theme:'t3',topic:'الطبيعة 🌿',words:['جبل','نهر','بحر','صحراء','غابة','بركان','وادي']},
+  {size:7,theme:'t5',topic:'الفصول 🌸',words:['ربيع','صيف','خريف','شتاء','أمطار','ثلوج','رياح']},
+  {size:7,theme:'t4',topic:'المهن 👩‍⚕️',words:['طبيب','مهندس','معلم','محامي','طيار','صحفي','فنان']},
+  {size:8,theme:'t2',topic:'العلوم 🔬',words:['فيزياء','كيمياء','رياضيات','أحياء','جيولوجيا','فلك','طب','هندسة']},
+  {size:8,theme:'t4',topic:'البحر 🌊',words:['قرش','دلفين','حوت','أخطبوط','سرطان','سمك','مرجان','لؤلؤ']},
+  {size:8,theme:'t6',topic:'الفضاء 🚀',words:['نجمة','قمر','شمس','مجرة','كوكب','نيزك','ثقب','سديم']},
+  {size:8,theme:'t7',topic:'الطيور 🦅',words:['نسر','صقر','بومة','بلبل','عصفور','طاووس','بط','وز']},
+  {size:6,theme:'t1',topic:'الحيوانات 🐾',words:['أسد','نمر','ثعلب','ذئب','حصان','فيل']},
+  {size:6,theme:'t3',topic:'الألوان 🎨',words:['أحمر','أصفر','أخضر','أزرق','أبيض','وردي']},
+  {size:7,theme:'t6',topic:'التكنولوجيا 💻',words:['حاسوب','هاتف','إنترنت','كاميرا','طابعة','شاشة','لوحة']},
+  {size:8,theme:'t5',topic:'التاريخ 📜',words:['فرعون','روما','بابل','أثينا','الصين','الهند','فارس','مصر']},
+];
+
+// [SHOP_ITEMS removed]
+
+const WHEEL_PRIZES=[
+  {emoji:'🪙',value:200,text:'200 عملة'},
+  {emoji:'🪙',value:100,text:'100 عملة'},
+  {emoji:'🪙',value:50,text:'50 عملة'},
+  {emoji:'💡',value:'hint',text:'تلميح مجاني'},
+  {emoji:'❄️',value:'freeze',text:'تجميد مجاني'},
+  {emoji:'🪙',value:10,text:'10 عملات'},
+  {emoji:'🪙',value:500,text:'500 عملة!'},
+  {emoji:'💎',value:'xp',text:'100 خبرة'},
+  {emoji:'🪙',value:25,text:'25 عملة'},
+  {emoji:'🎁',value:'double',text:'ضاعف مكافأتك'},
+];
+
+const DAILY_CHALLENGES=[
+  {id:'words5',desc:'اكتشف 5 كلمات في وضع الروبوت',target:5,reward:50},
+  {id:'noHint',desc:'أكمل مرحلة بدون تلميحات',target:1,reward:75},
+  {id:'collect100',desc:'اجمع 100 عملة في يوم واحد',target:100,reward:50},
+  {id:'speedRun',desc:'أكمل مرحلة في أقل من دقيقتين',target:120,reward:100},
+  {id:'combo5',desc:'حقق كومبو ×5',target:5,reward:60},
+  {id:'winRobot',desc:'اربح ضد الروبوت مرة واحدة',target:1,reward:80},
+];
+
+const COLORS=['#f87171','#fb923c','#fbbf24','#a3e635','#34d399','#38bdf8','#a78bfa','#f472b6','#22d3ee','#a3e635','#f472b6','#fb7185'];
+const AF='ابتثجحخدذرزسشصضطظعغفقكلمنهويءآأإةى';
+
+const RANKS=[
+  {name:'مبتدئ',xp:0},{name:'متعلم',xp:100},{name:'ماهر',xp:250},
+  {name:'خبير',xp:500},{name:'محترف',xp:900},{name:'أسطورة',xp:1500},{name:'أسطورة الكلمات',xp:2500}
+];
+
+const ACHIEVEMENTS=[
+  {id:'first',icon:'🌟',name:'الخطوة الأولى',desc:'اكشف أول كلمة',check:()=>totalFound>=1},
+  {id:'combo3',icon:'💥',name:'ثلاثية',desc:'3 كلمات متتالية بدون خطأ',check:()=>maxCombo>=3},
+  {id:'combo5',icon:'🔥',name:'خماسي النار',desc:'5 كلمات متتالية',check:()=>maxCombo>=5},
+  {id:'combo10',icon:'💫',name:'عشراوي',desc:'10 كلمات متتالية',check:()=>maxCombo>=10},
+  {id:'lv6',icon:'🎯',name:'نصف الطريق',desc:'أكمل 6 مراحل',check:()=>currentLv>=6},
+  {id:'lv12',icon:'🏅',name:'متمرس',desc:'أكمل 12 مرحلة',check:()=>currentLv>=12},
+  {id:'lv18',icon:'🥇',name:'بطل الكلمات',desc:'أكمل 18 مرحلة',check:()=>currentLv>=18},
+  {id:'lv21',icon:'👑',name:'ملك الكلمات',desc:'أكمل جميع المراحل',check:()=>currentLv>=21},
+  {id:'rich',icon:'💰',name:'ثري الكلمات',desc:'اجمع 500 عملة',check:()=>coins>=500},
+  {id:'rich2',icon:'💎',name:'مليونير',desc:'اجمع 1000 عملة',check:()=>coins>=1000},
+  {id:'robot1',icon:'🤖',name:'انتصار آلي',desc:'اربح ضد الروبوت لأول مرة',check:()=>robotWins>=1},
+  {id:'robot5',icon:'🏆',name:'سيد الروبوتات',desc:'اربح 5 مرات ضد الروبوت',check:()=>robotWins>=5},
+  {id:'streak3',icon:'🔥',name:'3 أيام متتالية',desc:'العب 3 أيام متتالية',check:()=>streak>=3},
+  {id:'streak7',icon:'🌞',name:'أسبوع كامل',desc:'العب 7 أيام متتالية',check:()=>streak>=7},
+  {id:'freeze',icon:'❄️',name:'متجمد',desc:'استخدم تجميد الوقت',check:()=>freezeUsed>=1},
+  {id:'speed',icon:'⚡',name:'سريع',desc:'أكمل مرحلة في أقل من دقيقة',check:()=>speedRecord},
+  {id:'wheel',icon:'🎁',name:'محظوظ',desc:'استخدم عجلة الحظ',check:()=>wheelSpins>=1},
+  {id:'shopper',icon:'🛒',name:'متسوق',desc:'اشتري من المتجر',check:()=>shopPurchases>=1},
+  {id:'golden',icon:'✨',name:'الذهبي',desc:'اكتشف الكلمة الذهبية',check:()=>goldenFound},
+];
+
+// ══════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════
+let currentLv=0, coins=200, xp=0, streak=0;
+let grid=[], placed=[], foundCount=0, totalFound=0;
+let combo=0, maxCombo=0, levelHintUsed=false;
+let timerSec=300, timerInt=null;
+let isDragging=false, selStart=null, selCells=[];
+let goldenWord='', goldenFound=false;
+let unlockedAch=new Set();
+let achQueue=[];
+let isPaused=false;
+let warned30=false, warned10=false;
+let freezeUsed=0;
+let speedRecord=false;
+let levelStartTime=0;
+let levelCoins=0;
+
+// ── القلوب (الوضع الفردي فقط) ──
+let hearts=3;            // القلوب الحالية
+let maxHearts=3;         // الحد الأقصى
+let lastHeartLostTime=0; // وقت آخر فقدان قلب
+const HEART_REGEN_MS=15*60*1000; // 15 دقيقة
+let heartRegenInt=null;
+
+// ── المشتريات الفعلية ──
+let ownedHints=0;
+let ownedFreezes=0;
+let ownedReveals=0;
+let ownedFreezeRobots=0; // تجميد الروبوت
+let doubleXpCharges=0;
+let ownedExtraHearts=0;  // قلوب احتياطية مشتراة
+
+// ── المتجر ──
+let shopPurchases=0;
+let wheelSpins=0;
+let lastWheelSpin=null;
+let doubleRewards=false;
+let ownedThemes=['t1','t2','t3','t4','t5','t6'];
+
+// ── تحدي يومي ──
+let dailyChallenge=null;
+let dailyProgress=0;
+let lastChallengeDate=null;
+
+// ── وضع اللعب ──
+let gameMode='none';
+let gameLocked=false;
+let currentLevelData=null;
+
+// ── روبوت ──
+let robotScore=0, userScore=0, drawScore=0;
+let robotWins=0, robotLosses=0;
+let robotFoundWords=[];
+let robotTimerInt=null;
+let robotLastFoundTime=0;
+let gameEnded=false;
+let robotFrozen=false;
+let robotFreezeEndTime=0;
+
+// ── فردي ──
+let soloSavedLevel=0;
+
+// ── الوضع الليلي ──
+let isDarkMode=false;
+
+// ── إحصاء ──
+let stats={
+  totalWordsFound:0, totalGamesPlayed:0, totalRobotGames:0,
+  bestTime:Infinity, fastestSpeedRun:0, highestCombo:0,
+  totalCoinsEarned:0, perfectGames:0,
+};
+
+// ══════════════════════════════════════════════
+// AUDIO
+// ══════════════════════════════════════════════
+const AudioSys={
+  ctx:null,
+  init(){
+    if(!this.ctx){
+      this.ctx=new (window.AudioContext||window.webkitAudioContext)();
+    }
+  },
+  playTone(freq,dur,type='sine',vol=0.3){
+    this.init();
+    if(this.ctx.state==='suspended') this.ctx.resume();
+    const osc=this.ctx.createOscillator();
+    const gain=this.ctx.createGain();
+    osc.type=type;
+    osc.frequency.setValueAtTime(freq,this.ctx.currentTime);
+    gain.gain.setValueAtTime(vol,this.ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01,this.ctx.currentTime+dur);
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start();
+    osc.stop(this.ctx.currentTime+dur);
+  },
+  playFound(){
+    this.playTone(523.25,0.1,'sine',0.25);
+    setTimeout(()=>this.playTone(659.25,0.15,'sine',0.25),100);
+    setTimeout(()=>this.playTone(783.99,0.2,'sine',0.25),200);
+    setTimeout(()=>this.playTone(1046.5,0.3,'sine',0.2),350);
+  },
+  playGoldenFound(){
+    this.playTone(523.25,0.1,'sine',0.3);
+    setTimeout(()=>this.playTone(659.25,0.1,'sine',0.3),100);
+    setTimeout(()=>this.playTone(783.99,0.1,'sine',0.3),200);
+    setTimeout(()=>this.playTone(1046.5,0.15,'sine',0.3),300);
+    setTimeout(()=>this.playTone(1318.5,0.3,'sine',0.25),450);
+  },
+  playRobotFound(){
+    this.playTone(300,0.2,'sawtooth',0.2);
+    setTimeout(()=>this.playTone(250,0.3,'sawtooth',0.15),150);
+  },
+  playError(){
+    this.playTone(200,0.3,'sawtooth',0.15);
+    setTimeout(()=>this.playTone(150,0.2,'sawtooth',0.1),150);
+  },
+  playTick(){
+    this.playTone(800,0.05,'sine',0.1);
+  },
+  playWarning(){
+    this.playTone(600,0.15,'square',0.2);
+    setTimeout(()=>this.playTone(500,0.15,'square',0.2),200);
+  },
+  playWin(){
+    [523,659,783,1046,1318].forEach((f,i)=>{
+      setTimeout(()=>this.playTone(f,0.3,'sine',0.25),i*150);
+    });
+  },
+  playLose(){
+    [400,350,300,250,200].forEach((f,i)=>{
+      setTimeout(()=>this.playTone(f,0.3,'sawtooth',0.2),i*150);
+    });
+  },
+  playLevelUp(){
+    [440,554,659,880].forEach((f,i)=>{
+      setTimeout(()=>this.playTone(f,0.2,'sine',0.2),i*100);
+    });
+  },
+  playCoin(){
+    this.playTone(1200,0.1,'sine',0.15);
+    setTimeout(()=>this.playTone(1500,0.1,'sine',0.1),50);
+  },
+  playFreeze(){
+    this.playTone(800,0.3,'sine',0.2);
+    setTimeout(()=>this.playTone(600,0.4,'sine',0.15),200);
+  },
+  playCombo(){
+    this.playTone(523,0.1,'sine',0.2);
+    setTimeout(()=>this.playTone(659,0.1,'sine',0.2),80);
+    setTimeout(()=>this.playTone(784,0.1,'sine',0.2),160);
+    setTimeout(()=>this.playTone(1047,0.2,'sine',0.2),240);
+  },
+  playWheel(){
+    this.playTone(400,0.1,'sine',0.2);
+    setTimeout(()=>this.playTone(500,0.1,'sine',0.2),50);
+    setTimeout(()=>this.playTone(600,0.1,'sine',0.2),100);
+    setTimeout(()=>this.playTone(700,0.1,'sine',0.2),150);
+  }
+};
+
+// ══════════════════════════════════════════════
+// SAVE/LOAD
+// ══════════════════════════════════════════════
+function saveGame(){
+  localStorage.setItem('wordGameSave',JSON.stringify({
+    currentLv,soloSavedLevel,coins,xp,streak,totalFound,
+    robotWins,robotLosses,freezeUsed,ownedThemes,shopPurchases,
+    ownedHints,ownedFreezes,ownedReveals,ownedFreezeRobots,
+    doubleXpCharges,ownedExtraHearts,hearts,lastHeartLostTime,
+    wheelSpins,lastWheelSpin,dailyChallenge,dailyProgress,
+    lastChallengeDate,stats,isDarkMode,
+    unlockedAch:Array.from(unlockedAch),
+    lastPlayDate:new Date().toDateString()
+  }));
+}
+
+function loadGame(){
+  const saved=localStorage.getItem('wordGameSave');
+  if(!saved) return checkDailyChallenge();
+  try{
+    const d=JSON.parse(saved);
+    currentLv=d.currentLv||0;
+    soloSavedLevel=d.soloSavedLevel||0;
+    coins=d.coins||200; xp=d.xp||0; streak=d.streak||0;
+    totalFound=d.totalFound||0; robotWins=d.robotWins||0;
+    robotLosses=d.robotLosses||0; freezeUsed=d.freezeUsed||0;
+    ownedThemes=d.ownedThemes||['t1','t2','t3','t4','t5','t6'];
+    shopPurchases=d.shopPurchases||0;
+    ownedHints=d.ownedHints||0; ownedFreezes=d.ownedFreezes||0;
+    ownedReveals=d.ownedReveals||0; ownedFreezeRobots=d.ownedFreezeRobots||0;
+    doubleXpCharges=d.doubleXpCharges||0; ownedExtraHearts=d.ownedExtraHearts||0;
+    hearts=d.hearts!=null?d.hearts:3; lastHeartLostTime=d.lastHeartLostTime||0;
+    wheelSpins=d.wheelSpins||0; lastWheelSpin=d.lastWheelSpin||null;
+    dailyChallenge=d.dailyChallenge||null; dailyProgress=d.dailyProgress||0;
+    lastChallengeDate=d.lastChallengeDate||null;
+    stats=d.stats||{totalWordsFound:0,totalGamesPlayed:0,totalRobotGames:0,bestTime:Infinity,fastestSpeedRun:0,highestCombo:0,totalCoinsEarned:0,perfectGames:0};
+    isDarkMode=d.isDarkMode||false;
+    if(d.unlockedAch) unlockedAch=new Set(d.unlockedAch);
+    document.getElementById('ach-count').textContent=unlockedAch.size;
+    checkDailyChallenge();
+    const today=new Date().toDateString();
+    const yesterday=new Date(Date.now()-86400000).toDateString();
+    if(d.lastPlayDate===yesterday){
+      streak++;
+      const bonus=50+Math.min(streak*10,100);
+      setTimeout(()=>{ addCoins(bonus); showDailyBonus(`🔥 سلسلة ${streak} أيام! +${bonus}🪙`); },800);
+    } else if(d.lastPlayDate!==today){ streak=0; }
+    if(d.lastPlayDate){
+      const gap=Math.floor((new Date()-new Date(d.lastPlayDate))/86400000);
+      if(gap>=2) setTimeout(()=>{ addCoins(100); showDailyBonus(`🎉 اشتقنا إليك! +100🪙`); },1500);
+    }
+    if(isDarkMode) applyDarkMode(true);
+    startHeartRegenTimer();
+  }catch(e){ checkDailyChallenge(); }
+}
+
+function checkDailyChallenge(){
+  const today=new Date().toDateString();
+  if(lastChallengeDate!==today){
+    // New day, new challenge
+    dailyChallenge=DAILY_CHALLENGES[Math.floor(Math.random()*DAILY_CHALLENGES.length)];
+    dailyProgress=0;
+    lastChallengeDate=today;
+    updateDailyChallengeUI();
+  }
+}
+
+function updateDailyChallengeUI(){
+  if(!dailyChallenge)return;
+  const el=document.getElementById('daily-challenge');
+  el.classList.add('show');
+  document.getElementById('dc-desc').textContent=dailyChallenge.desc;
+  document.getElementById('dc-reward').textContent=`+${dailyChallenge.reward}🪙`;
+  const pct=Math.min(100,(dailyProgress/dailyChallenge.target)*100);
+  document.getElementById('dc-progress').style.width=pct+'%';
+}
+
+function updateDailyProgress(type,value=1){
+  if(!dailyChallenge)return;
+  if(dailyChallenge.id===type||
+     (dailyChallenge.id==='words5'&&type==='robotWords')||
+     (dailyChallenge.id==='noHint'&&type==='noHint')||
+     (dailyChallenge.id==='winRobot'&&type==='winRobot')){
+    dailyProgress+=value;
+    if(dailyProgress>=dailyChallenge.target){
+      addCoins(dailyChallenge.reward);
+      showToast(`🎉 أكملت تحدي اليوم! +${dailyChallenge.reward}🪙`);
+      dailyProgress=0;
+      dailyChallenge=null;
+      document.getElementById('daily-challenge').classList.remove('show');
+    }
+    updateDailyChallengeUI();
+    saveGame();
+  }
+}
+
+function showDailyBonus(msg){
+  const div=document.createElement('div');
+  div.className='daily-bonus';
+  div.innerHTML=`<div class="daily-bonus-emoji">🎁</div><div class="daily-bonus-text">${msg}</div>`;
+  document.body.appendChild(div);
+  setTimeout(()=>div.remove(),2800);
+}
+
+// ══════════════════════════════════════════════
+// HEARTS SYSTEM - القلوب (الوضع الفردي فقط)
+// ══════════════════════════════════════════════
+function updateHeartsUI(){
+  const bar=document.getElementById('hearts-bar');
+  if(!bar) return;
+  bar.style.display=(gameMode==='solo')?'flex':'none';
+  for(let i=1;i<=3;i++){
+    const el=document.getElementById('heart-'+i);
+    if(!el) continue;
+    el.classList.toggle('lost', i>hearts);
+  }
+  // عرض وقت التجديد
+  const regen=document.getElementById('heart-regen-timer');
+  if(hearts<maxHearts && lastHeartLostTime>0){
+    const elapsed=Date.now()-lastHeartLostTime;
+    const remaining=Math.max(0, HEART_REGEN_MS-elapsed);
+    const mins=Math.floor(remaining/60000);
+    const secs=Math.floor((remaining%60000)/1000);
+    if(regen) regen.textContent=`❤️ تجدد خلال ${mins}:${String(secs).padStart(2,'0')}`;
+  } else {
+    if(regen) regen.textContent='';
+  }
+}
+
+function loseHeart(){
+  if(hearts<=0) return;
+  // تأثير فقدان قلب
+  const el=document.getElementById('heart-'+hearts);
+  if(el){ el.style.animation='heartLose .5s ease forwards'; }
+  hearts--;
+  if(lastHeartLostTime===0 || hearts===maxHearts-1) lastHeartLostTime=Date.now();
+  updateHeartsUI();
+  saveGame();
+  if(hearts<=0){
+    showToast('💔 لا قلوب متبقية! انتظر 15 دقيقة أو اشترِ قلوباً');
+    setTimeout(()=>showEndModal('💔','نفدت القلوب!',
+      'يتجدد قلب كل 15 دقيقة، أو اشترِ قلوباً من المتجر 🛒',
+      `<div class="ms"><div class="ms-l">رصيدك</div><div class="ms-v">${coins}🪙</div></div>`,null),600);
+  } else {
+    showToast(`💔 خسرت قلباً! تبقى: ${'❤️'.repeat(hearts)}${'🖤'.repeat(3-hearts)}`);
+  }
+}
+
+function gainHeart(n=1){
+  const prev=hearts;
+  hearts=Math.min(maxHearts, hearts+n);
+  if(hearts>=maxHearts) lastHeartLostTime=0;
+  // تأثير ربح قلب
+  for(let i=prev+1;i<=hearts;i++){
+    const el=document.getElementById('heart-'+i);
+    if(el){ el.classList.remove('lost'); el.style.animation='heartGain .4s ease'; setTimeout(()=>el.style.animation='',500); }
+  }
+  updateHeartsUI();
+  saveGame();
+}
+
+function startHeartRegenTimer(){
+  if(heartRegenInt) clearInterval(heartRegenInt);
+  heartRegenInt=setInterval(()=>{
+    if(hearts<maxHearts && lastHeartLostTime>0){
+      const elapsed=Date.now()-lastHeartLostTime;
+      if(elapsed>=HEART_REGEN_MS){
+        gainHeart(1);
+        lastHeartLostTime=hearts<maxHearts?Date.now():0;
+        showToast('❤️ تجدد لديك قلب!');
+      }
+    }
+    updateHeartsUI();
+  },5000);
+}
+
+// ══════════════════════════════════════════════
+// SHOP - المتجر الفعلي
+// ══════════════════════════════════════════════
+const SHOP_CATALOG=[
+  // للجميع
+  {id:'hints5',  emoji:'💡',name:'5 تلميحات',   desc:'استخدمها في أي مرحلة',price:100, qty:5,  type:'hints',   modes:'all'},
+  {id:'freeze2', emoji:'❄️',name:'2 تجميد وقت', desc:'أضف 30-60 ثانية للعداد',price:80,  qty:2,  type:'freeze',  modes:'solo'},
+  {id:'reveal2', emoji:'👁️',name:'2 كشف كلمة',  desc:'تكشف كلمة كاملة في الحال',price:100,qty:2,  type:'reveal',  modes:'all'},
+  {id:'doublexp',emoji:'⭐',name:'XP×2 لمرحلتين',desc:'يضاعف XP للمرحلتين القادمتين',price:120,qty:2,type:'doublexp',modes:'all'},
+  // وضع فردي فقط
+  {id:'heart2',  emoji:'❤️',name:'قلبان إضافيان',desc:'يعيد 2 قلب فوراً (فردي فقط)',price:100,qty:2,  type:'heart',   modes:'solo'},
+  // روبوت فقط
+  {id:'frzrobot',emoji:'🥶',name:'2 تجميد روبوت',desc:'جمّد الروبوت 10 ثوانٍ (روبوت فقط)',price:80,qty:2,type:'freezerobot',modes:'robot'},
+  // ثيمات
+  {id:'theme7',  emoji:'🌌',name:'ثيم المجرة',   desc:'ثيم بنفسجي متدرج',  price:300,themeVal:'t7',type:'theme',modes:'all'},
+  {id:'theme8',  emoji:'🌊',name:'ثيم المحيط',   desc:'ثيم أزرق عميق',     price:300,themeVal:'t8',type:'theme',modes:'all'},
+  {id:'theme9',  emoji:'🔥',name:'ثيم الحمم',    desc:'ثيم أحمر ناري',     price:400,themeVal:'t9',type:'theme',modes:'all'},
+  {id:'theme10', emoji:'❄️',name:'ثيم الجليد',   desc:'ثيم أزرق بارد',     price:400,themeVal:'t10',type:'theme',modes:'all'},
+];
+
+function openShop(){
+  closeSideMenu();
+  document.getElementById('shop-coins-display').textContent=coins;
+  const list=document.getElementById('shop-list');
+  list.innerHTML='';
+  SHOP_CATALOG.forEach(item=>{
+    // فحص ما إذا كان متاحاً للوضع الحالي (نعرض الكل دائماً لكن نوضح)
+    const isThemeOwned=item.type==='theme'&&ownedThemes.includes(item.themeVal);
+    
+    // حساب الكمية المتوفرة
+    let owned=0, label='';
+    if(item.type==='hints')       { owned=ownedHints;       label=`لديك: ${owned}`; }
+    else if(item.type==='freeze') { owned=ownedFreezes;     label=`لديك: ${owned}`; }
+    else if(item.type==='reveal') { owned=ownedReveals;     label=`لديك: ${owned}`; }
+    else if(item.type==='doublexp'){owned=doubleXpCharges;  label=`مراحل: ${owned}`; }
+    else if(item.type==='heart')  { owned=hearts;           label=`قلوب: ${hearts}/${maxHearts}`; }
+    else if(item.type==='freezerobot'){owned=ownedFreezeRobots; label=`لديك: ${owned}`; }
+    else if(item.type==='theme')  { owned=isThemeOwned?1:0; label=isThemeOwned?'مملوك':'غير مملوك'; }
+
+    const row=document.createElement('div');
+    row.className='shop-row'+(isThemeOwned?' owned':'');
+    
+    // تعطيل إذا القلوب ممتلئة أو الثيم مملوك
+    const cantBuy=(item.type==='heart'&&hearts>=maxHearts)||(isThemeOwned);
+    
+    row.innerHTML=`
+      <div class="shop-row-icon">${item.emoji}</div>
+      <div class="shop-row-info">
+        <div class="shop-row-name">${item.name}</div>
+        <div class="shop-row-desc">${item.desc} · ${label}</div>
+      </div>
+      <div class="shop-row-price">${cantBuy?(isThemeOwned?'✅':'ممتلئ'):item.price+'🪙'}</div>
+    `;
+    if(!cantBuy) row.onclick=()=>shopBuy(item);
+    list.appendChild(row);
+  });
+  showModal('shop-modal');
+}
+
+function shopBuy(item){
+  if(coins<item.price){ showToast('❌ رصيد غير كافٍ'); return; }
+  
+  // فحص: إذا كان القلب ممتلئ
+  if(item.type==='heart' && hearts>=maxHearts){ showToast('❤️ قلوبك ممتلئة!'); return; }
+  // فحص: إذا كان الثيم مملوكاً
+  if(item.type==='theme' && ownedThemes.includes(item.themeVal)){ 
+    applyTheme(item.themeVal); showToast(`🎨 تم تفعيل ${item.name}!`); closeModal('shop-modal'); return;
+  }
+  
+  addCoins(-item.price);
+  shopPurchases++;
+  
+  switch(item.type){
+    case'hints':       ownedHints+=item.qty;       showToast(`💡 أضفت ${item.qty} تلميحات! المجموع: ${ownedHints}`); break;
+    case'freeze':      ownedFreezes+=item.qty;     showToast(`❄️ أضفت ${item.qty} تجميد! المجموع: ${ownedFreezes}`); break;
+    case'reveal':      ownedReveals+=item.qty;     showToast(`👁️ أضفت ${item.qty} كشف! المجموع: ${ownedReveals}`); break;
+    case'doublexp':    doubleXpCharges+=item.qty;  showToast(`⭐ XP×2 لـ${item.qty} مراحل! المجموع: ${doubleXpCharges}`); break;
+    case'heart':       gainHeart(item.qty);        showToast(`❤️ استعدت ${item.qty} قلب!`); break;
+    case'freezerobot': ownedFreezeRobots+=item.qty;showToast(`🥶 أضفت ${item.qty} تجميد روبوت! المجموع: ${ownedFreezeRobots}`); break;
+    case'theme':
+      ownedThemes.push(item.themeVal);
+      applyTheme(item.themeVal);
+      showToast(`🎨 تم شراء وتفعيل ${item.name}!`);
+      break;
+  }
+  updateInventoryUI();
+  saveGame(); checkAchs();
+  // إعادة رسم المتجر
+  openShop();
+}
+
+// ══════════════════════════════════════════════
+// FREEZE ROBOT - تجميد الروبوت
+// ══════════════════════════════════════════════
+function freezeRobot(){
+  AudioSys.init();
+  if(gameMode!=='robot'){ showToast('🤖 هذا يعمل في وضع الروبوت فقط!'); return; }
+  if(ownedFreezeRobots<=0){ showToast('❌ لا تجميد روبوت متاح - اشترِ من المتجر!'); return; }
+  if(robotFrozen){ showToast('🥶 الروبوت متجمد بالفعل!'); return; }
+  ownedFreezeRobots--;
+  updateInventoryUI();
+  robotFrozen=true;
+  robotFreezeEndTime=Date.now()+10000; // 10 ثوانٍ
+  AudioSys.playFreeze();
+  showToast('🥶 الروبوت متجمد 10 ثوانٍ!');
+  saveGame();
+}
+
+// ══════════════════════════════════════════════
+// VISIBILITY CHANGE - إيقاف اللعب عند تغيير النافذة
+// ══════════════════════════════════════════════
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden && gameMode!=='none' && !isPaused && timerInt){
+    togglePause();
+    showToast('⏸️ اللعبة متوقفة - رجعنا!');
+  }
+});
+
+// ══════════════════════════════════════════════
+// DARK MODE
+// ══════════════════════════════════════════════
+function toggleDarkMode(){
+  closeSideMenu();
+  isDarkMode=!isDarkMode;
+  applyDarkMode(isDarkMode);
+  saveGame();
+}
+function applyDarkMode(on){
+  const b=document.body;
+  if(on){
+    b.classList.add('dark');
+    document.getElementById('dark-icon').textContent='☀️';
+    document.getElementById('dark-label').textContent='وضع نهاري';
+  }else{
+    b.classList.remove('dark');
+    document.getElementById('dark-icon').textContent='🌙';
+    document.getElementById('dark-label').textContent='الوضع الليلي';
+  }
+}
+
+// ══════════════════════════════════════════════
+// MODE SELECTION SCREEN
+// ══════════════════════════════════════════════
+function showModeScreen(){
+  document.getElementById('mode-select-screen').classList.remove('hidden');
+  // إيقاف أي لعبة جارية
+  clearInterval(timerInt);
+  stopRobotTimer();
+  gameMode='none';
+  gameLocked=false;
+}
+
+function hideModeScreen(){
+  document.getElementById('mode-select-screen').classList.add('hidden');
+}
+
+function goToModeScreen(){
+  closeSideMenu();
+  if(gameLocked){
+    showToast('🔒 أكمل المرحلة الحالية أولاً!');
+    return;
+  }
+  showModeScreen();
+}
+
+function chooseModeAndStart(mode){
+  AudioSys.init();
+  hideModeScreen();
+
+  if(mode==='robot' && coins<100){
+    showToast('❌ تحتاج 100🪙 على الأقل للعب ضد الروبوت');
+    setTimeout(showModeScreen,500);
+    return;
+  }
+  // في الوضع الفردي: تحقق من وجود قلوب
+  if(mode==='solo' && hearts<=0){
+    showToast('💔 لا قلوب متبقية! انتظر أو اشترِ من المتجر');
+    // اعرض المتجر مباشرة
+    setTimeout(()=>{ hideModeScreen(); openShop(); },600);
+    return;
+  }
+
+  gameMode=mode;
+  document.getElementById('btn-solo').classList.toggle('active',mode==='solo');
+  document.getElementById('btn-speed').classList.toggle('active',mode==='speed');
+  document.getElementById('btn-robot').classList.toggle('active',mode==='robot');
+
+  if(mode==='solo'){
+    document.getElementById('timer-mode').textContent='وضع فردي 🎮';
+    currentLv=soloSavedLevel;
+    startSoloLevel(currentLv);
+  }else if(mode==='speed'){
+    document.getElementById('timer-mode').textContent='وضع السرعة ⚡';
+    startRandomLevel(60);
+  }else{
+    document.getElementById('timer-mode').textContent='ضد الروبوت 🤖';
+    resetRobotScores();
+    startRandomLevel(null);
+  }
+}
+
+// ── أزرار وضع أعلى الشاشة (تغيير أثناء الجلسة - مقيد)
+function setMode(mode){
+  if(mode===gameMode) return;
+  if(gameLocked){
+    showToast('🔒 أكمل المرحلة الحالية أولاً، ثم غيّر الوضع');
+    document.querySelectorAll('.mode-btn').forEach(b=>{
+      b.style.animation='shake .35s ease';
+      setTimeout(()=>b.style.animation='',400);
+    });
+    return;
+  }
+  chooseModeAndStart(mode);
+}
+
+// ══════════════════════════════════════════════
+// WHEEL OF FORTUNE
+// ══════════════════════════════════════════════
+function openWheel(){
+  closeSideMenu();
+  const canSpin=lastWheelSpin!==new Date().toDateString();
+  document.getElementById('wheel-btn').textContent=canSpin?'🎰 لف العجلة':'✅ لقد لففت اليوم';
+  document.getElementById('wheel-btn').disabled=!canSpin;
+  showModal('wheel-modal');
+}
+
+function spinWheel(){
+  if(lastWheelSpin===new Date().toDateString()){ showToast('❌ لقد استخدمت لفّتك اليوم!'); return; }
+  AudioSys.playWheel();
+  wheelSpins++;
+  lastWheelSpin=new Date().toDateString();
+  const wheel=document.getElementById('wheel');
+  const prizeIndex=Math.floor(Math.random()*WHEEL_PRIZES.length);
+  const spinDeg=1800+(prizeIndex*36)+Math.floor(Math.random()*30);
+  wheel.style.setProperty('--spin-deg',`${spinDeg}deg`);
+  wheel.classList.add('spin');
+  document.getElementById('wheel-btn').disabled=true;
+  setTimeout(()=>{
+    wheel.classList.remove('spin');
+    applyWheelPrize(WHEEL_PRIZES[prizeIndex]);
+    document.getElementById('wheel-btn').textContent='✅ لقد لففت اليوم';
+  },3000);
+}
+
+function applyWheelPrize(prize){
+  switch(prize.value){
+    case'hint':  ownedHints+=2; ownedFreezes+=1; updateInventoryUI(); showToast('🎁 فزت بـ 2 تلميح + 1 تجميد مجاني!'); break;
+    case'freeze':ownedFreezes+=2;updateInventoryUI(); showToast('🎁 فزت بـ 2 تجميد مجاني!'); break;
+    case'xp':   addXp(100);      showToast('🎁 +100 خبرة!'); break;
+    case'double':doubleRewards=true; showToast('🎁 مكافآت مضاعفة للجولة القادمة!'); break;
+    default:     addCoins(prize.value); showToast(`🎉 +${prize.value}🪙`);
+  }
+  AudioSys.playWin(); checkAchs(); saveGame();
+}
+
+// ══════════════════════════════════════════════
+// SHOP - المشتريات تعمل فعلياً
+// ══════════════════════════════════════════════
+// [/*openShop*/ removed - no shop]
+
+
+// [renderShop removed - no shop]
+
+
+// [buyItem removed - no shop]
+
+
+function applyTheme(t){
+  // احفظ dark class إن كان مفعلاً
+  const dark=document.body.classList.contains('dark');
+  document.body.className=t;
+  if(dark) document.body.classList.add('dark');
+  spawnParticles();
+}
+
+// تحديث واجهة المخزون على الأزرار
+function updateInventoryUI(){
+  // تلميح
+  const hl=document.getElementById('hint-label');
+  if(hl) hl.textContent=ownedHints>0?`${ownedHints}💡`:'50🪙';
+  const hb=document.getElementById('btn-hint');
+  if(hb) hb.disabled=(ownedHints===0&&coins<50);
+  // تجميد وقت (فردي فقط)
+  const fl=document.getElementById('freeze-label');
+  if(fl) fl.textContent=ownedFreezes>0?`${ownedFreezes}❄️`:'50🪙';
+  const fb=document.getElementById('btn-freeze');
+  if(fb){ fb.disabled=(ownedFreezes===0&&coins<50); fb.style.display=gameMode==='solo'?'flex':'none'; }
+  // تجميد روبوت (روبوت فقط)
+  const frl=document.getElementById('freeze-robot-label');
+  if(frl) frl.textContent=ownedFreezeRobots>0?`${ownedFreezeRobots}🥶`:'اشترِ';
+  const frb=document.getElementById('btn-freeze-robot');
+  if(frb){ frb.style.display=gameMode==='robot'?'flex':'none'; frb.disabled=ownedFreezeRobots===0; }
+  // كشف كلمة
+  const rb=document.getElementById('btn-reveal');
+  const rl=document.getElementById('reveal-label');
+  if(rb) rb.style.display=ownedReveals>0?'flex':'none';
+  if(rl) rl.textContent=ownedReveals;
+  // تحديث شاشة المتجر لو مفتوحة
+  const sc=document.getElementById('shop-coins-display');
+  if(sc) sc.textContent=coins;
+}
+
+// ══════════════════════════════════════════════
+// ACHIEVEMENTS LIST
+// ══════════════════════════════════════════════
+function openAchievements(){
+  closeSideMenu();
+  const content=document.getElementById('ach-list-content');
+  content.innerHTML='';
+  ACHIEVEMENTS.forEach(a=>{
+    const unlocked=unlockedAch.has(a.id);
+    const div=document.createElement('div');
+    div.style.cssText=`display:flex;align-items:center;gap:10px;padding:10px;margin-bottom:6px;background:${unlocked?'var(--a)20':'var(--cell)'};border:1px solid ${unlocked?'var(--a)':'var(--cb)'};border-radius:12px;opacity:${unlocked?1:.5}`;
+    div.innerHTML=`<span style="font-size:1.5rem">${a.icon}</span><div><div style="font-weight:800;color:var(--tx);font-size:.85rem">${a.name} ${unlocked?'✅':''}</div><div style="color:var(--tx2);font-size:.72rem">${a.desc}</div></div>`;
+    content.appendChild(div);
+  });
+  showModal('ach-list-modal');
+}
+
+// ══════════════════════════════════════════════
+// STATS
+// ══════════════════════════════════════════════
+function openStats(){
+  closeSideMenu();
+  renderStats();
+  showModal('stats-modal');
+}
+
+function renderStats(){
+  const grid=document.getElementById('stats-grid');
+  grid.innerHTML=`
+    <div class="stat-box"><div class="stat-value">${stats.totalWordsFound}</div><div class="stat-label">كلمات مكتشفة</div></div>
+    <div class="stat-box"><div class="stat-value">${stats.totalGamesPlayed}</div><div class="stat-label">ألعاب منفذة</div></div>
+    <div class="stat-box"><div class="stat-value">${stats.bestTime===Infinity?'--':Math.floor(stats.bestTime/60)+':'+String(stats.bestTime%60).padStart(2,'0')}</div><div class="stat-label">أفضل وقت</div></div>
+    <div class="stat-box"><div class="stat-value">${stats.highestCombo}</div><div class="stat-label">أعلى كومبو</div></div>
+    <div class="stat-box"><div class="stat-value">${robotWins}</div><div class="stat-label">انتصارات الروبوت</div></div>
+    <div class="stat-box"><div class="stat-value">${unlockedAch.size}</div><div class="stat-label">إنجازات</div></div>
+  `;
+}
+
+// ══════════════════════════════════════════════
+// LEADERBOARD
+// ══════════════════════════════════════════════
+function openLeaderboard(){
+  closeSideMenu();
+  renderLeaderboard();
+  showModal('leaderboard-modal');
+}
+
+function renderLeaderboard(){
+  // Simulated leaderboard with player included
+  const leaderboard=[
+    {name:'أنت',score:xp+totalFound*10+robotWins*50,isPlayer:true},
+    {name:'بطل الكلمات',score:2500,isPlayer:false},
+    {name:'محترف',score:1800,isPlayer:false},
+    {name:'خبير',score:1200,isPlayer:false},
+    {name:'ماهر',score:800,isPlayer:false},
+  ].sort((a,b)=>b.score-a.score);
+  
+  const list=document.getElementById('leaderboard-list');
+  list.innerHTML='';
+  leaderboard.forEach((entry,i)=>{
+    const rankClass=i===0?'gold':i===1?'silver':i===2?'bronze':'';
+    const div=document.createElement('div');
+    div.className='lb-item';
+    div.innerHTML=`<div class="lb-rank ${rankClass}">${i+1}</div><div class="lb-name">${entry.name}</div><div class="lb-score">${entry.score}</div>`;
+    if(entry.isPlayer)div.style.border='2px solid var(--g)';
+    list.appendChild(div);
+  });
+}
+
+// ══════════════════════════════════════════════
+// SIDE MENU
+// ══════════════════════════════════════════════
+function openSideMenu(){
+  document.getElementById('side-menu').classList.add('show');
+  document.getElementById('side-menu-overlay').classList.add('show');
+}
+
+function closeSideMenu(){
+  document.getElementById('side-menu').classList.remove('show');
+  document.getElementById('side-menu-overlay').classList.remove('show');
+}
+
+function shareApp(){
+  closeSideMenu();
+  if(navigator.share){
+    navigator.share({
+      title:'كلمات متشابكة',
+      text:'جرب لعبة كلمات متشابكة الرائعة! 🎮',
+      url:window.location.href
+    });
+  }else{
+    showToast('📤 تم نسخ رابط التطبيق!');
+    navigator.clipboard.writeText(window.location.href);
+  }
+}
+
+function showPrivacy(){
+  closeSideMenu();
+  showModal('privacy-modal');
+}
+
+function showTerms(){
+  closeSideMenu();
+  showModal('terms-modal');
+}
+
+function contactUs(){
+  closeSideMenu();
+  window.location.href='mailto:support@wordgame.com';
+}
+
+function rateApp(){
+  closeSideMenu();
+  showToast('⭐ شكراً لتقييمك!');
+}
+
+function resetGame(){
+  closeSideMenu();
+  if(confirm('هل أنت متأكد؟ سيتم فقدان جميع تقدمك!')){
+    localStorage.removeItem('wordGameSave');
+    location.reload();
+  }
+}
+
+function resetRobotScores(){
+  robotScore=0; userScore=0; drawScore=0;
+  robotFoundWords=[]; gameEnded=false; robotFrozen=false;
+  updateRobotUI();
+}
+
+function updateRobotUI(){
+  document.getElementById('user-score').textContent=userScore;
+  document.getElementById('robot-score').textContent=robotScore;
+  document.getElementById('draw-score').textContent=drawScore;
+}
+
+// ══════════════════════════════════════════════
+// PARTICLES
+// ══════════════════════════════════════════════
+function spawnParticles(){
+  const c=document.getElementById('particles'); c.innerHTML='';
+  const color=getComputedStyle(document.body).getPropertyValue('--a').trim();
+  for(let i=0;i<16;i++){
+    const p=document.createElement('div'); p.className='par';
+    p.style.cssText=`width:${4+Math.random()*7}px;height:${4+Math.random()*7}px;left:${Math.random()*100}%;background:${color};animation-duration:${9+Math.random()*12}s;animation-delay:${Math.random()*9}s;`;
+    c.appendChild(p);
+  }
+}
+
+// ══════════════════════════════════════════════
+// PAUSE
+// ══════════════════════════════════════════════
+function togglePause(){
+  AudioSys.init();
+  isPaused=!isPaused;
+  const overlay=document.getElementById('pause-overlay');
+  const btn=document.getElementById('btn-pause');
+  if(isPaused){
+    overlay.classList.add('show');
+    btn.innerHTML='▶️ استمرار';
+    clearInterval(timerInt);
+    if(robotTimerInt) clearInterval(robotTimerInt);
+  }else{
+    overlay.classList.remove('show');
+    btn.innerHTML='⏸️ إيقاف';
+    timerInt=setInterval(tickTimer,1000);
+    if(gameMode==='robot'&&!gameEnded) startRobotTimer();
+  }
+}
+
+// ══════════════════════════════════════════════
+// FREEZE & HINTS (تستخدم المخزون أولاً)
+// ══════════════════════════════════════════════
+function useFreeze(){
+  AudioSys.init();
+  if(gameMode==='robot'||gameMode==='speed'){ showToast('❌ لا يوجد تجميد في هذا الوضع!'); return; }
+  if(ownedFreezes>0){
+    ownedFreezes--;
+  } else {
+    if(coins<50){ showToast('❌ رصيد غير كافٍ - اشترِ تجميد من المتجر!'); return; }
+    addCoins(-50);
+  }
+  freezeUsed++;
+  updateInventoryUI();
+  
+  const effect=document.createElement('div');
+  effect.className='freeze-effect';
+  document.body.appendChild(effect);
+  const ice=document.createElement('div');
+  ice.className='freeze-ice';
+  ice.textContent='❄️';
+  ice.style.cssText='left:50%;top:50%;transform:translate(-50%,-50%);position:fixed;z-index:260;font-size:4rem;pointer-events:none;animation:iceAnim 3s ease forwards';
+  document.body.appendChild(ice);
+  setTimeout(()=>{ effect.remove(); ice.remove(); },3000);
+  
+  AudioSys.playFreeze();
+  const add=Math.random()>0.5?60:30;
+  timerSec+=add;
+  updateTimerUI();
+  showToast(`❄️ +${add}ث! ${ownedFreezes>0?'['+ownedFreezes+' تجميد متبقي]':''}`);
+  checkAchs(); saveGame();
+}
+
+function useHint(){
+  AudioSys.init();
+  if(ownedHints>0){
+    ownedHints--;
+    updateInventoryUI();
+  } else {
+    if(coins<50){ showToast('❌ رصيد غير كافٍ - اشترِ تلميحات من المتجر!'); return; }
+    addCoins(-50);
+  }
+  // فقط الكلمات التي لم تُكتشف بعد
+  const rem=placed.filter(p=>!p.found);
+  if(!rem.length){ showToast('✅ اكتشفت جميع الكلمات!'); return; }
+  const target=rem[Math.floor(Math.random()*rem.length)];
+  levelHintUsed=true;
+  combo=0; updateComboUI();
+  // أبرز الخلية الأولى من الكلمة — فقط إذا لم تكن مكتشفة
+  const [r,c]=target.cells[0];
+  const el=getCell(r,c);
+  if(el && !el.classList.contains('found-cell') && !el.classList.contains('robot-found-cell')){
+    el.classList.add('hint-first');
+    el.style.color=target.color;
+    setTimeout(()=>{ el.classList.remove('hint-first'); if(!el.classList.contains('found-cell')) el.style.color=''; },1200);
+  }
+  const letter=grid[r][c];
+  showToast(`💡 ${ownedHints>0?'['+ownedHints+' متبقي] ':''}"${target.word[0]}" · ${target.word.length} حروف`);
+  saveGame();
+}
+
+function useReveal(){
+  AudioSys.init();
+  if(ownedReveals<=0){ showToast('❌ لا يوجد كشف كلمة - اشترِ من المتجر!'); return; }
+  const rem=placed.filter(p=>!p.found);
+  if(!rem.length) return;
+  ownedReveals--;
+  updateInventoryUI();
+  const target=rem[Math.floor(Math.random()*rem.length)];
+  levelHintUsed=true;
+  target.found=true; foundCount++; totalFound++; stats.totalWordsFound++;
+  colorCells(target.cells,target.color,target.golden);
+  const chip=document.getElementById('chip-'+target.word);
+  if(chip){ chip.classList.add('found'); chip.style.borderColor=target.color; chip.style.color=target.color; }
+  setProgress(foundCount/placed.length);
+  AudioSys.playFound();
+  showToast(`👁️ كُشفت: ${target.word}! [${ownedReveals} متبقي]`);
+  if(foundCount===placed.length){ AudioSys.playWin(); setTimeout(showWin,700); }
+  saveGame();
+}
+
+// ══════════════════════════════════════════════
+// MYSTERY BOX
+// ══════════════════════════════════════════════
+const MYSTERY_PRIZES=[
+  {emoji:'🪙',text:'+200 عملة!',  action:()=>addCoins(200)},
+  {emoji:'💡',text:'3 تلميحات!', action:()=>{ ownedHints+=3; updateInventoryUI(); }},
+  {emoji:'❄️',text:'2 تجميد!',   action:()=>{ ownedFreezes+=2; updateInventoryUI(); }},
+  {emoji:'👁️',text:'2 كشف كلمة!',action:()=>{ ownedReveals+=2; updateInventoryUI(); }},
+  {emoji:'⭐',text:'XP×2 لمرحلتين!',action:()=>{ doubleXpCharges+=2; }},
+  {emoji:'🪙',text:'+100 عملة!', action:()=>addCoins(100)},
+  {emoji:'💎',text:'+150 خبرة!', action:()=>addXp(150)},
+  {emoji:'🪙',text:'+50 عملة!',  action:()=>addCoins(50)},
+];
+let _mysteryPrize=null;
+let _mysteryCallback=null;
+let _mysteryOpened=false;
+
+function showMysteryBox(cb){
+  _mysteryPrize=MYSTERY_PRIZES[Math.floor(Math.random()*MYSTERY_PRIZES.length)];
+  _mysteryCallback=cb;
+  _mysteryOpened=false;
+  document.getElementById('mystery-prize-display').textContent='❓';
+  document.getElementById('mystery-prize-text').textContent='';
+  const btn=document.getElementById('mystery-btn');
+  btn.textContent='🎰 افتح الصندوق!';
+  btn.disabled=false;
+  showModal('mystery-modal');
+}
+
+function openMysteryBox(){
+  if(_mysteryOpened) return;
+  _mysteryOpened=true;
+  const btn=document.getElementById('mystery-btn');
+  btn.disabled=true;
+  let flips=0;
+  const fl=setInterval(()=>{
+    const rp=MYSTERY_PRIZES[Math.floor(Math.random()*MYSTERY_PRIZES.length)];
+    document.getElementById('mystery-prize-display').textContent=rp.emoji;
+    flips++;
+    if(flips>14){
+      clearInterval(fl);
+      document.getElementById('mystery-prize-display').textContent=_mysteryPrize.emoji;
+      document.getElementById('mystery-prize-text').textContent=_mysteryPrize.text;
+      _mysteryPrize.action();
+      AudioSys.playWin();
+      showToast(`🎉 صندوق الغموض: ${_mysteryPrize.text}`);
+      saveGame();
+      btn.textContent='🚀 استمرار اللعب!';
+      btn.disabled=false;
+      btn.onclick=()=>{ closeModal('mystery-modal'); btn.onclick=openMysteryBox; if(_mysteryCallback) _mysteryCallback(); };
+    }
+  },130);
+}
+
+// ══════════════════════════════════════════════
+// ROBOT TIMER
+// ══════════════════════════════════════════════
+function startRobotTimer(){
+  stopRobotTimer();
+  robotLastFoundTime=Date.now();
+  document.getElementById('robot-status').textContent='🤖 الروبوت يبحث...';
+  
+  robotTimerInt=setInterval(()=>{
+    if(isPaused||gameEnded) return;
+    
+    if(robotFrozen){
+      const remaining=Math.ceil((robotFreezeEndTime-Date.now())/1000);
+      if(Date.now()>robotFreezeEndTime){
+        robotFrozen=false;
+        robotLastFoundTime=Date.now(); // إعادة تعيين العداد بعد التجميد
+        document.getElementById('robot-status').textContent='🤖 الروبوت عاد للبحث!';
+      }else{
+        document.getElementById('robot-status').textContent=`🥶 روبوت متجمد (${remaining}ث)`;
+        return;
+      }
+    }
+    
+    const elapsed=Date.now()-robotLastFoundTime;
+    const robotDelay=20000; // 20 ثانية ثابتة
+    
+    if(elapsed>=robotDelay){
+      robotFindWord();
+      robotLastFoundTime=Date.now();
+    }
+    
+    const remaining=Math.ceil((robotDelay-elapsed)/1000);
+    if(remaining>0){
+      document.getElementById('robot-status').textContent=`🤖 يبحث... (${remaining}ث)`;
+    }
+  },1000);
+}
+
+function stopRobotTimer(){
+  if(robotTimerInt){
+    clearInterval(robotTimerInt);
+    robotTimerInt=null;
+  }
+}
+
+function robotFindWord(){
+  const remaining=placed.filter(p=>!p.found&&!robotFoundWords.includes(p.word));
+  if(remaining.length===0){
+    endRobotGameByWords();
+    return;
+  }
+  
+  const target=remaining[Math.floor(Math.random()*remaining.length)];
+  robotFoundWords.push(target.word);
+  robotScore++;
+  
+  AudioSys.playRobotFound();
+  
+  document.getElementById('robot-timer-badge').classList.add('show');
+  setTimeout(()=>document.getElementById('robot-timer-badge').classList.remove('show'),2000);
+  
+  const chip=document.getElementById('chip-'+target.word);
+  if(chip){
+    chip.classList.add('robot-found');
+    chip.style.textDecoration='line-through';
+    chip.style.opacity='0.5';
+  }
+  
+  target.cells.forEach(([r,c])=>{
+    const el=getCell(r,c);
+    if(el){
+      el.classList.add('robot-found-cell');
+      el.style.background='var(--robot)';
+    }
+  });
+  
+  showRobotFoundAnim(target.word);
+  spawnRobotFloat('-1🤖',target.cells[0]);
+  
+  document.getElementById('robot-status').textContent=`🤖 وجد: ${target.word}!`;
+  updateRobotUI();
+  
+  const allRemaining=placed.filter(x=>!x.found&&!robotFoundWords.includes(x.word));
+  if(allRemaining.length===0){
+    endRobotGameByWords();
+  }
+}
+
+function endRobotGameByWords(){
+  gameEnded=true;
+  stopRobotTimer();
+  clearInterval(timerInt);
+  
+  if(userScore>robotScore){
+    endRobotGame('win');
+  }else if(robotScore>userScore){
+    endRobotGame('lose');
+  }else{
+    endRobotGame('draw');
+  }
+}
+
+function showRobotFoundAnim(word){
+  const el=document.createElement('div');
+  el.className='robot-found-anim';
+  el.textContent='🤖 '+word;
+  el.style.left='50%';
+  el.style.top='40%';
+  el.style.transform='translateX(-50%)';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1500);
+}
+
+function spawnRobotFloat(text,cell){
+  const [r,c]=cell,el=getCell(r,c);
+  if(!el)return;
+  const rect=el.getBoundingClientRect();
+  const d=document.createElement('div');
+  d.className='robot-cfloat'; d.textContent=text;
+  d.style.left=rect.left+rect.width/2+'px';
+  d.style.top=rect.top+'px';
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),1300);
+}
+
+// [old endRobotGame removed]
+
+
+// [playAgain/exitToMenu moved to END MODAL section]
+
+// ══════════════════════════════════════════════
+// LEVEL START
+// ══════════════════════════════════════════════
+
+// وضع فردي: يتقدم من 6×6 إلى 9×9 مع أوقات صحيحة
+function startSoloLevel(lv){
+  if(lv>=LEVELS.length){ lv=0; soloSavedLevel=0; showToast('🔄 أكملت جميع المراحل! نبدأ من الأول'); }
+  currentLv=lv;
+  const L=LEVELS[lv];
+  // 6×6=2دق، 7×7=3دق، 8×8=4دق، 9×9=5دق
+  const time=L.size<=6?120:L.size===7?180:L.size===8?240:300;
+  _startLevelCore(L,time);
+}
+
+// وضع سرعة/روبوت: مستوى عشوائي
+function startRandomLevel(customTime){
+  const L=RANDOM_POOL[Math.floor(Math.random()*RANDOM_POOL.length)];
+  const time=customTime||(L.size<=6?120:L.size===7?180:240);
+  _startLevelCore(L,time);
+}
+
+function startLevel(lv){ startSoloLevel(lv); }
+
+function _startLevelCore(L,timeSec){
+  clearInterval(timerInt);
+  stopRobotTimer();
+  isPaused=false;
+  document.getElementById('pause-overlay').classList.remove('show');
+  document.getElementById('btn-pause').innerHTML='⏸️';
+
+  foundCount=0; combo=0; maxCombo=0;
+  levelHintUsed=false; goldenFound=false;
+  warned30=false; warned10=false;
+  gameEnded=false; robotFoundWords=[];
+  levelStartTime=Date.now(); levelCoins=0;
+  gameLocked=true;
+  currentLevelData=L;
+
+  applyTheme(L.theme);
+  flashLv();
+
+  document.getElementById('topic-tag').textContent=L.topic;
+  document.getElementById('size-label').textContent=`${L.size}×${L.size}`;
+
+  timerSec=timeSec;
+  updateTimerUI();
+  updateCoinsUI(); updateInventoryUI(); updateXpUI(); updateStreakUI(); updateHeartsUI();
+  setProgress(0);
+
+  // إظهار/إخفاء عناصر حسب الوضع
+  document.getElementById('hearts-bar').style.display=gameMode==='solo'?'flex':'none';
+  document.getElementById('btn-freeze').style.display=gameMode==='solo'?'flex':'none';
+  document.getElementById('btn-freeze-robot').style.display=gameMode==='robot'?'flex':'none';
+  document.getElementById('robot-panel').style.display=gameMode==='robot'?'block':'none';
+
+  genGrid(L);
+  renderWords();
+
+  timerInt=setInterval(tickTimer,1000);
+  if(gameMode==='robot') startRobotTimer();
+
+  stats.totalGamesPlayed++;
+  saveGame();
+}
+
+// [retryLevel moved]
+
+// [nextLevel moved]
+
+// ══════════════════════════════════════════════
+// TIMER
+// ══════════════════════════════════════════════
+function tickTimer(){
+  if(isPaused)return;
+  timerSec--;
+  updateTimerUI();
+  
+  if(timerSec===30&&!warned30){
+    warned30=true;
+    AudioSys.playWarning();
+    showToast('⚠️ 30 ثانية متبقية!');
+  }
+  if(timerSec===10&&!warned10){
+    warned10=true;
+    AudioSys.playWarning();
+    showToast('🚨 10 ثوانٍ فقط!');
+  }
+  if(timerSec<=10&&timerSec>0){
+    AudioSys.playTick();
+  }
+  
+  if(timerSec<=0){ timeUp(); }
+}
+
+function updateTimerUI(){
+  const m=Math.floor(timerSec/60), s=timerSec%60;
+  const el=document.getElementById('timer-val');
+  el.textContent=`${m}:${String(s).padStart(2,'0')}`;
+  el.className='timer-val'+(timerSec<=20?' danger':timerSec<=40?' warn':'');
+
+  const sz=currentLevelData?currentLevelData.size:6;
+  // 6×6=120s, 7×7=180s, 8×8=240s, 9×9=300s, speed=60s
+  const totalTime=gameMode==='speed'?60:sz<=6?120:sz===7?180:sz===8?240:300;
+  const pct=Math.min(100,(timerSec/totalTime)*100);
+  const bar=document.getElementById('timer-bar');
+  bar.style.width=pct+'%';
+  bar.style.background=timerSec<=20?'linear-gradient(90deg,#ef4444,#f97316)':timerSec<=40?'linear-gradient(90deg,#f97316,#fbbf24)':'linear-gradient(90deg,var(--a2),var(--a))';
+}
+
+// [timeUp moved]
+
+// ══════════════════════════════════════════════
+// GRID
+// ══════════════════════════════════════════════
+function genGrid(L){
+  const S=L.size;
+  grid=Array.from({length:S},()=>Array(S).fill(''));
+  placed=[];
+
+  const DIRS=[[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+  const ws=[...L.words].sort(()=>Math.random()-.5);
+
+  ws.forEach((w,wi)=>{
+    let ok=false,tries=0;
+    while(!ok&&tries<500){
+      tries++;
+      const dir=DIRS[Math.floor(Math.random()*8)];
+      const r=Math.floor(Math.random()*S), c=Math.floor(Math.random()*S);
+      const cells=[]; let valid=true;
+      for(let i=0;i<w.length;i++){
+        const nr=r+dir[0]*i, nc=c+dir[1]*i;
+        if(nr<0||nr>=S||nc<0||nc>=S){valid=false;break;}
+        if(grid[nr][nc]!==''&&grid[nr][nc]!==w[i]){valid=false;break;}
+        cells.push([nr,nc]);
+      }
+      if(valid){
+        cells.forEach(([nr,nc],i)=>grid[nr][nc]=w[i]);
+        placed.push({word:w,cells,color:COLORS[wi%COLORS.length],found:false});
+        ok=true;
+      }
+    }
+  });
+
+  const gIdx=Math.floor(Math.random()*placed.length);
+  goldenWord=placed[gIdx].word;
+  placed[gIdx].golden=true;
+
+  for(let r=0;r<S;r++) for(let c=0;c<S;c++) if(!grid[r][c]) grid[r][c]=AF[Math.floor(Math.random()*AF.length)];
+
+  renderGrid(S);
+}
+
+function renderGrid(S){
+  const el=document.getElementById('grid');
+  const cz=Math.min(46,Math.floor((Math.min(window.innerWidth,500)-56)/S));
+  el.style.gridTemplateColumns=`repeat(${S},${cz}px)`;
+  el.innerHTML='';
+  for(let r=0;r<S;r++) for(let c=0;c<S;c++){
+    const cell=document.createElement('div');
+    cell.className='cell';
+    cell.style.width=cell.style.height=cz+'px';
+    cell.style.fontSize=Math.max(11,cz*.42)+'px';
+    cell.textContent=grid[r][c];
+    cell.dataset.r=r; cell.dataset.c=c;
+    cell.addEventListener('mousedown',onMD);
+    cell.addEventListener('mouseover',onMO);
+    cell.addEventListener('mouseup',onMU);
+    cell.addEventListener('touchstart',onTS,{passive:false});
+    cell.addEventListener('touchmove',onTM,{passive:false});
+    cell.addEventListener('touchend',onMU);
+    el.appendChild(cell);
+  }
+  for(const p of placed) if(p.found) colorCells(p.cells,p.color,p.golden);
+}
+
+function renderWords(){
+  const el=document.getElementById('words-top'); el.innerHTML='';
+  for(const p of placed){
+    const ch=document.createElement('div');
+    ch.className='wchip'+(p.found?' found':'')+(p.golden?' golden':'');
+    ch.id='chip-'+p.word;
+    ch.textContent=p.golden?'✨ '+p.word:p.word;
+    if(p.found){ch.style.borderColor=p.color;ch.style.color=p.color;}
+    el.appendChild(ch);
+  }
+}
+
+// ══════════════════════════════════════════════
+// SELECTION
+// ══════════════════════════════════════════════
+function onMD(e){if(isPaused||gameEnded)return;e.preventDefault();AudioSys.init();isDragging=true;selStart={r:+e.target.dataset.r,c:+e.target.dataset.c};selCells=[selStart];hlSel(selCells)}
+function onMO(e){if(!isDragging||isPaused||gameEnded)return;const r=+e.target.dataset.r,c=+e.target.dataset.c;const cells=getLine(selStart,{r,c});clrSel();hlSel(cells);selCells=cells}
+function onMU(){if(!isDragging||isPaused||gameEnded)return;isDragging=false;clrSel();if(selCells.length>=2)checkWord(selCells);selCells=[]}
+function onTS(e){if(isPaused||gameEnded)return;e.preventDefault();AudioSys.init();const t=e.touches[0],el=document.elementFromPoint(t.clientX,t.clientY);if(!el||!el.classList.contains('cell'))return;isDragging=true;selStart={r:+el.dataset.r,c:+el.dataset.c};selCells=[selStart];hlSel(selCells)}
+function onTM(e){if(!isDragging||isPaused||gameEnded)return;e.preventDefault();const t=e.touches[0],el=document.elementFromPoint(t.clientX,t.clientY);if(!el||!el.classList.contains('cell'))return;const r=+el.dataset.r,c=+el.dataset.c;const cells=getLine(selStart,{r,c});clrSel();hlSel(cells);selCells=cells}
+document.addEventListener('mouseup',()=>{if(isDragging)onMU()});
+
+function getLine(f,t){
+  const dr=t.r-f.r,dc=t.c-f.c;
+  if(!dr&&!dc)return[f];
+  const len=Math.max(Math.abs(dr),Math.abs(dc));
+  if(dr&&dc&&Math.abs(dr)!==Math.abs(dc))return[f];
+  const sr=dr?dr/Math.abs(dr):0,sc=dc?dc/Math.abs(dc):0;
+  return Array.from({length:len+1},(_,i)=>({r:f.r+sr*i,c:f.c+sc*i}));
+}
+function hlSel(cs){cs.forEach(({r,c})=>{const el=getCell(r,c);if(el&&!el.classList.contains('found-cell'))el.classList.add('selecting')})}
+function clrSel(){document.querySelectorAll('.cell.selecting').forEach(el=>el.classList.remove('selecting'))}
+function getCell(r,c){return document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`)}
+
+// ══════════════════════════════════════════════
+// CHECK WORD
+// ══════════════════════════════════════════════
+function checkWord(cells){
+  const w=cells.map(({r,c})=>grid[r][c]).join('');
+  const wR=[...w].reverse().join('');
+
+  for(const p of placed){
+    if(p.found) continue;
+    if(p.word===w||p.word===wR){
+      const uc=p.word===w?cells:[...cells].reverse();
+      const match=p.cells.every(([r,c],i)=>uc[i]?.r===r&&uc[i]?.c===c);
+      if(match){ doFound(p); return; }
+    }
+  }
+
+  // Fail
+  combo=0; updateComboUI();
+  addCoins(-1);
+  AudioSys.playError();
+  showToast('❌ خطأ! -1🪙');
+  cells.forEach(({r,c})=>{
+    const el=getCell(r,c);
+    if(!el)return;
+    el.style.background='rgba(239,68,68,.3)';
+    el.style.borderColor='#ef4444';
+    setTimeout(()=>{el.style.background='';el.style.borderColor='';},350);
+  });
+}
+
+function doFound(p){
+  p.found=true; foundCount++; totalFound++;
+  stats.totalWordsFound++;
+  
+  if(gameMode==='robot'){
+    userScore++;
+    updateRobotUI();
+    updateDailyProgress('robotWords');
+  }
+  
+  colorCells(p.cells,p.color,p.golden);
+
+  const chip=document.getElementById('chip-'+p.word);
+  if(chip){chip.classList.add('found');chip.style.borderColor=p.color;chip.style.color=p.color;}
+
+  combo++;
+  if(combo>maxCombo) maxCombo=combo;
+  if(combo>stats.highestCombo) stats.highestCombo=combo;
+  updateComboUI();
+  
+  let earn=10;
+  let xpEarn=15;
+  
+  if(combo>=3){
+    earn+=5;
+    xpEarn+=5;
+    AudioSys.playCombo();
+    showComboPopup();
+  }
+
+  if(p.golden){
+    goldenFound=true;
+    earn+=20;
+    xpEarn+=15;
+    AudioSys.playGoldenFound();
+    showToast(`🌟 الكلمة الذهبية! +${earn}🪙`);
+    spawnGoldenFloat(`+${earn}🌟`,p.cells[0]);
+    triggerAch('golden');
+  } else {
+    AudioSys.playFound();
+    showToast(`✅ ${p.word}! +${earn}🪙`);
+    spawnWordFloat(`+${earn}✨`,p.cells[0]);
+  }
+  
+  if(combo>=3){
+    spawnComboFloat(`💥 ×${combo}!`,p.cells[p.cells.length-1]);
+  }
+  
+  spawnXpFloat(`+${xpEarn}⭐`,p.cells[Math.floor(p.cells.length/2)]);
+
+  if(doubleRewards){
+    earn*=2;
+    xpEarn*=2;
+  }
+  
+  // تجميع المال للمرحلة فقط (يُضاف عند الفوز)
+  levelCoins+=earn;
+  addXp(xpEarn);
+  setProgress(foundCount/placed.length);
+
+  checkAchs();
+
+  const elapsed=(Date.now()-levelStartTime)/1000;
+  if(elapsed<60) speedRecord=true;
+
+  if(gameMode==='robot'){
+    const allRemaining=placed.filter(x=>!x.found&&!robotFoundWords.includes(x.word));
+    if(allRemaining.length===0){
+      endRobotGameByWords();
+      return;
+    }
+  }
+
+  if(foundCount===placed.length){
+    AudioSys.playWin();
+    stats.perfectGames++;
+    setTimeout(showWin,700);
+  }
+  saveGame();
+}
+
+function colorCells(cells,color,golden=false){
+  cells.forEach(([r,c])=>{
+    const el=getCell(r,c);
+    if(!el)return;
+    el.classList.add('found-cell');
+    el.style.background=color;
+    el.style.boxShadow=`0 0 12px ${color}80`;
+    el.style.color='#fff';
+    if(golden) el.classList.add('golden-cell');
+  });
+}
+
+// ══════════════════════════════════════════════
+// FLOATING ANIMATIONS
+// ══════════════════════════════════════════════
+function spawnWordFloat(text,cell){
+  const [r,c]=cell,el=getCell(r,c);
+  if(!el)return;
+  const rect=el.getBoundingClientRect();
+  const d=document.createElement('div');
+  d.className='word-found-float';
+  d.textContent=text;
+  d.style.left=rect.left+rect.width/2+'px';
+  d.style.top=rect.top+'px';
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),1800);
+}
+
+function spawnGoldenFloat(text,cell){
+  const [r,c]=cell,el=getCell(r,c);
+  if(!el)return;
+  const rect=el.getBoundingClientRect();
+  const d=document.createElement('div');
+  d.className='golden-float';
+  d.textContent=text;
+  d.style.left=rect.left+rect.width/2+'px';
+  d.style.top=rect.top+'px';
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),2000);
+}
+
+function spawnComboFloat(text,cell){
+  const [r,c]=cell,el=getCell(r,c);
+  if(!el)return;
+  const rect=el.getBoundingClientRect();
+  const d=document.createElement('div');
+  d.className='combo-float';
+  d.textContent=text;
+  d.style.left=rect.left+rect.width/2+'px';
+  d.style.top=rect.top+'px';
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),1500);
+}
+
+function spawnXpFloat(text,cell){
+  const [r,c]=cell,el=getCell(r,c);
+  if(!el)return;
+  const rect=el.getBoundingClientRect();
+  const d=document.createElement('div');
+  d.className='xp-float';
+  d.textContent=text;
+  d.style.left=rect.left+rect.width/2+'px';
+  d.style.top=rect.top+'px';
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),1500);
+}
+
+function spawnFloat(text,cell){
+  const [r,c]=cell,el=getCell(r,c);
+  if(!el)return;
+  const rect=el.getBoundingClientRect();
+  const d=document.createElement('div');
+  d.className='cfloat';
+  d.textContent=text;
+  d.style.left=rect.left+rect.width/2+'px';
+  d.style.top=rect.top+'px';
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),1500);
+}
+
+// ══════════════════════════════════════════════
+// COMBO
+// ══════════════════════════════════════════════
+function updateComboUI(){
+  document.getElementById('combo-val').textContent=`×${Math.min(combo,10)||1}`;
+}
+
+function showComboPopup(){
+  const el=document.getElementById('combo-disp');
+  el.textContent=`💥 ×${Math.min(combo,10)}`;
+  el.classList.remove('pop');
+  void el.offsetWidth;
+  el.classList.add('pop');
+}
+
+// ══════════════════════════════════════════════
+// XP & RANK
+// ══════════════════════════════════════════════
+function addXp(val){
+  xp+=val;
+  updateXpUI();
+}
+
+function updateXpUI(){
+  let rank=RANKS[0], next=RANKS[1];
+  for(let i=RANKS.length-1;i>=0;i--) if(xp>=RANKS[i].xp){rank=RANKS[i];next=RANKS[i+1]||null;break;}
+  const max=next?next.xp:rank.xp+500;
+  const cur=xp-rank.xp, total=max-rank.xp;
+  const pct=Math.min(100,(cur/total)*100);
+  document.getElementById('xp-val').textContent=xp;
+  document.getElementById('xp-max').textContent=max;
+  document.getElementById('xp-bar').style.width=pct+'%';
+  document.getElementById('rank-badge').textContent=rank.name;
+}
+
+// ══════════════════════════════════════════════
+// COINS
+// ══════════════════════════════════════════════
+function addCoins(delta){
+  coins+=delta;
+  if(coins<0) coins=0;
+  updateCoinsUI(); updateInventoryUI();
+  checkAchs();
+  saveGame();
+}
+function updateCoinsUI(){document.getElementById('coins-val').textContent=coins;}
+
+// ══════════════════════════════════════════════
+// STREAK
+// ══════════════════════════════════════════════
+function updateStreakUI(){
+  document.getElementById('streak-val').textContent=streak;
+  const hdr=document.getElementById('hdr-streak');
+  if(hdr) hdr.textContent=`🔥 ${streak}`;
+}
+
+// ══════════════════════════════════════════════
+// PROGRESS
+// ══════════════════════════════════════════════
+function setProgress(r){document.getElementById('prog-fill').style.width=(r*100)+'%';}
+
+// ══════════════════════════════════════════════
+// END MODAL UNIFIED - نافذة النهاية الموحدة
+// ══════════════════════════════════════════════
+function showEndModal(emoji, title, sub, statsHtml, pendingAction){
+  // pendingAction: function to call BEFORE starting next game (e.g. mystery box)
+  window._endPendingAction = pendingAction || null;
+
+  document.getElementById('end-emoji').textContent = emoji;
+  document.getElementById('end-title').textContent = title;
+  document.getElementById('end-sub').textContent = sub;
+  document.getElementById('end-stats').innerHTML = statsHtml;
+
+  // أزرار وضع - تعطيل روبوت لو رصيد أقل من 100
+  const robotBtn = document.getElementById('end-btn-robot');
+  if(coins < 100){
+    robotBtn.style.opacity = '0.4';
+    robotBtn.title = 'تحتاج 100🪙';
+  } else {
+    robotBtn.style.opacity = '1';
+    robotBtn.title = '';
+  }
+
+  document.getElementById('end-modal').classList.add('show');
+}
+
+function endChooseMode(mode){
+  document.getElementById('end-modal').classList.remove('show');
+  gameLocked = false;
+
+  if(mode === 'robot' && coins < 100){
+    showToast('❌ تحتاج 100🪙 للعب ضد الروبوت');
+    return;
+  }
+  if(mode === 'solo' && hearts<=0){
+    showToast('💔 لا قلوب متبقية! انتظر 15 دقيقة أو اشترِ من المتجر');
+    return;
+  }
+
+  const go = ()=>{
+    gameMode = mode;
+    document.getElementById('btn-solo').classList.toggle('active', mode==='solo');
+    document.getElementById('btn-speed').classList.toggle('active', mode==='speed');
+    document.getElementById('btn-robot').classList.toggle('active', mode==='robot');
+
+    if(mode==='solo'){
+      document.getElementById('robot-panel').classList.remove('show');
+      document.getElementById('btn-freeze').style.display='flex';
+      document.getElementById('timer-mode').textContent='وضع فردي 🎮';
+      startSoloLevel(soloSavedLevel);
+    } else if(mode==='speed'){
+      document.getElementById('robot-panel').classList.remove('show');
+      document.getElementById('btn-freeze').style.display='none';
+      document.getElementById('timer-mode').textContent='وضع السرعة ⚡';
+      startRandomLevel(60);
+    } else {
+      document.getElementById('robot-panel').classList.add('show');
+      document.getElementById('btn-freeze').style.display='none';
+      document.getElementById('timer-mode').textContent='ضد الروبوت 🤖';
+      resetRobotScores();
+      startRandomLevel(null);
+    }
+  };
+
+  if(window._endPendingAction){
+    const action = window._endPendingAction;
+    window._endPendingAction = null;
+    action(go); // e.g. mystery box then go
+  } else {
+    go();
+  }
+}
+
+// ══════════════════════════════════════════════
+// WIN
+// ══════════════════════════════════════════════
+function showWin(){
+  clearInterval(timerInt);
+  stopRobotTimer();
+  gameLocked = false;
+
+  const elapsed = (Date.now()-levelStartTime)/1000;
+  if(elapsed < stats.bestTime) stats.bestTime = elapsed;
+
+  if(levelCoins > 0){
+    addCoins(levelCoins);
+    stats.totalCoinsEarned += levelCoins;
+  }
+
+  let stars = 1;
+  if(timerSec > 120) stars++;
+  if(!levelHintUsed && maxCombo >= 5) stars++;
+  const starsStr = '⭐'.repeat(stars) + '☆'.repeat(3-stars);
+
+  const rem = `${Math.floor(timerSec/60)}:${String(timerSec%60).padStart(2,'0')}`;
+  let bonusXp = timerSec>120?30:timerSec>60?15:0;
+  if(doubleXpCharges > 0){
+    bonusXp = (bonusXp+15)*2;
+    doubleXpCharges--;
+    showToast(`⭐ XP مضاعف! [${doubleXpCharges} متبقي]`);
+    saveGame();
+  }
+  if(bonusXp) addXp(bonusXp);
+
+  const noHint = !levelHintUsed;
+  if(noHint){ triggerAch('noHint'); updateDailyProgress('noHint'); }
+  if(timerSec > 180) updateDailyProgress('speedRun', 300-timerSec);
+  updateDailyProgress('collect100', 10*foundCount+(goldenFound?20:0));
+
+  if(gameMode === 'solo'){
+    streak++;
+    soloSavedLevel = currentLv+1;
+    updateStreakUI();
+    if(streak>=3) triggerAch('streak3');
+    if(streak>=7) triggerAch('streak7');
+  }
+
+  stats.perfectGames++;
+  checkAchs();
+  saveGame();
+
+  const statsHtml = `
+    <div class="ms"><div class="ms-l">النجوم</div><div class="ms-v" style="color:var(--g)">${starsStr}</div></div>
+    <div class="ms"><div class="ms-l">الوقت المتبقي</div><div class="ms-v">${rem}</div></div>
+    <div class="ms"><div class="ms-l">المكافأة</div><div class="ms-v" style="color:var(--g)">+${levelCoins}🪙</div></div>
+    <div class="ms"><div class="ms-l">الكومبو</div><div class="ms-v">×${maxCombo}</div></div>
+  `;
+
+  const lvLabel = gameMode==='solo' ? `مرحلة ${currentLv+1}` : 'الجولة';
+
+  // صندوق الغموض كل 3 مراحل فردية
+  let pendingAction = null;
+  if(gameMode==='solo' && soloSavedLevel > 0 && soloSavedLevel % 3 === 0){
+    pendingAction = (cb) => showMysteryBox(cb);
+  }
+  // nextLevel يصبح endChooseMode بعد عرض النافذة
+  // نحتاج فقط نحفظ المستوى الجديد قبل العرض
+  if(gameMode==='solo') currentLv = soloSavedLevel;
+
+  showEndModal(
+    currentLv >= LEVELS.length ? '👑' : '🏆',
+    noHint ? 'رائع! بدون تلميح 🧠' : 'أحسنت!',
+    `${lvLabel} مكتملة ${noHint?'✅':''}`,
+    statsHtml,
+    pendingAction
+  );
+}
+
+// ══════════════════════════════════════════════
+// ROBOT GAME END
+// ══════════════════════════════════════════════
+function endRobotGame(result){
+  gameEnded = true;
+  stopRobotTimer();
+  clearInterval(timerInt);
+  gameLocked = false;
+  stats.totalRobotGames++;
+
+  let emoji, title, sub, statsHtml;
+
+  if(result === 'win'){
+    robotWins++;
+    const reward = doubleRewards ? 200 : 100;
+    addCoins(reward);
+    addXp(50);
+    AudioSys.playWin();
+    updateDailyProgress('winRobot');
+    triggerAch('robot1');
+    emoji = '🏆'; title = 'فزت على الروبوت!'; sub = 'أداء رائع!';
+    statsHtml = `
+      <div class="ms"><div class="ms-l">نتيجتك</div><div class="ms-v" style="color:var(--g)">${userScore}</div></div>
+      <div class="ms"><div class="ms-l">الروبوت</div><div class="ms-v" style="color:var(--danger)">${robotScore}</div></div>
+      <div class="ms"><div class="ms-l">المكسب</div><div class="ms-v" style="color:var(--g)">+${reward}🪙</div></div>
+      <div class="ms"><div class="ms-l">خبرة</div><div class="ms-v">+50✨</div></div>
+    `;
+  } else if(result === 'lose'){
+    robotLosses++;
+    streak = 0; updateStreakUI();
+    const loss = doubleRewards ? 200 : 100;
+    addCoins(-loss);
+    AudioSys.playLose();
+    emoji = '😔'; title = 'خسرت!'; sub = 'الروبوت انتصر هذه المرة';
+    statsHtml = `
+      <div class="ms"><div class="ms-l">نتيجتك</div><div class="ms-v" style="color:var(--danger)">${userScore}</div></div>
+      <div class="ms"><div class="ms-l">الروبوت</div><div class="ms-v" style="color:var(--g)">${robotScore}</div></div>
+      <div class="ms"><div class="ms-l">الخسارة</div><div class="ms-v" style="color:var(--danger)">-${loss}🪙</div></div>
+      <div class="ms"><div class="ms-l">رصيدك</div><div class="ms-v">${coins}🪙</div></div>
+    `;
+  } else {
+    addCoins(20);
+    emoji = '🤝'; title = 'تعادل!'; sub = 'كانت معركة متقاربة!';
+    statsHtml = `
+      <div class="ms"><div class="ms-l">نتيجتك</div><div class="ms-v">${userScore}</div></div>
+      <div class="ms"><div class="ms-l">الروبوت</div><div class="ms-v">${robotScore}</div></div>
+      <div class="ms"><div class="ms-l">مكافأة</div><div class="ms-v" style="color:var(--g)">+20🪙</div></div>
+    `;
+  }
+
+  doubleRewards = false;
+  checkAchs();
+  saveGame();
+  showEndModal(emoji, title, sub, statsHtml, null);
+}
+
+// ══════════════════════════════════════════════
+// TIME UP
+// ══════════════════════════════════════════════
+function timeUp(){
+  clearInterval(timerInt);
+  stopRobotTimer();
+  gameLocked=false;
+  levelCoins=0;
+
+  if(gameMode==='robot'){
+    endRobotGame(userScore>robotScore?'win':robotScore>userScore?'lose':'draw');
+    return;
+  }
+
+  streak=0; updateStreakUI();
+
+  const statsHtml=`
+    <div class="ms"><div class="ms-l">الكلمات</div><div class="ms-v" style="color:var(--danger)">${foundCount}/${placed.length}</div></div>
+    <div class="ms"><div class="ms-l">رصيدك</div><div class="ms-v">${coins}🪙</div></div>
+  `;
+
+  if(gameMode==='speed' && foundCount>stats.fastestSpeedRun) stats.fastestSpeedRun=foundCount;
+  saveGame();
+
+  // في الوضع الفردي: نفقد قلباً
+  if(gameMode==='solo'){
+    loseHeart();
+    if(hearts>0){
+      // لا نزال نملك قلوباً - نعرض نافذة النهاية
+      showEndModal('⏰','انتهى الوقت!',
+        `💔 خسرت قلباً! تبقى ${'❤️'.repeat(hearts)}${'🖤'.repeat(3-hearts)}`,
+        statsHtml, null);
+    }
+    // إذا hearts=0 فقد loseHeart() أظهرت نافذتها بالفعل
+    return;
+  }
+
+  showEndModal('⏰','انتهى الوقت!','اختر وضعاً وحاول مجدداً!',statsHtml,null);
+}
+
+// هذه الدوال أصبحت غير ضرورية لكن نبقيها لأي مرجع داخلي
+function closeAllEndModals(){
+  ['win-modal','robot-win-modal','robot-lose-modal','robot-draw-modal','timeup-modal'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.classList.remove('show');
+  });
+}
+function nextLevel(){ /* handled by endChooseMode */ }
+function retryLevel(){ endChooseMode(gameMode==='none'?'solo':gameMode); }
+function playAgain(){ endChooseMode(gameMode==='none'?'solo':gameMode); }
+function exitToMenu(){ showModeScreen(); }
+
+// ══════════════════════════════════════════════
+// ACHIEVEMENTS
+// ══════════════════════════════════════════════
+function checkAchs(){
+  for(const a of ACHIEVEMENTS){
+    if(!unlockedAch.has(a.id)&&a.check()){
+      unlockedAch.add(a.id);
+      document.getElementById('ach-count').textContent=unlockedAch.size;
+      achQueue.push(a);
+      if(achQueue.length===1) processAchQueue();
+    }
+  }
+}
+
+function triggerAch(id){
+  const a=ACHIEVEMENTS.find(x=>x.id===id);
+  if(!a||unlockedAch.has(id))return;
+  unlockedAch.add(id);
+  document.getElementById('ach-count').textContent=unlockedAch.size;
+  achQueue.push(a);
+  if(achQueue.length===1) processAchQueue();
+}
+
+function processAchQueue(){
+  if(!achQueue.length)return;
+  const a=achQueue[0];
+  showAchPopup(a);
+  setTimeout(()=>{ achQueue.shift(); processAchQueue(); },3000);
+}
+
+function showAchPopup(a){
+  const el=document.getElementById('ach-popup');
+  el.innerHTML=`${a.icon} إنجاز: ${a.name}`;
+  el.classList.add('show');
+  AudioSys.playWin();
+  addCoins(25); addXp(20);
+  setTimeout(()=>el.classList.remove('show'),2500);
+}
+
+function closeAch(){ closeModal('ach-modal'); }
+
+// ══════════════════════════════════════════════
+// MODALS & UTILS
+// ══════════════════════════════════════════════
+function showModal(id){ document.getElementById(id).classList.add('show'); }
+function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+
+let toastT;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastT);
+  toastT=setTimeout(()=>t.classList.remove('show'),4000); // زيادة المدة إلى 4 ثواني
+}
+
+function flashLv(){
+  const el=document.getElementById('level-flash');
+  el.classList.add('flash');
+  setTimeout(()=>el.classList.remove('flash'),400);
+}
+
+// ══════════════════════════════════════════════
+// START
+// ══════════════════════════════════════════════
+loadGame();
+updateInventoryUI();
+updateXpUI();
+updateStreakUI();
+updateCoinsUI();
+updateHeartsUI();
+startHeartRegenTimer();
+// اعرض شاشة اختيار الوضع عند الفتح
+showModeScreen();
+
+// مكافأة الجلسة الطويلة
+setTimeout(()=>{ if(gameMode!=='none'){ addCoins(50); showDailyBonus('🕐 5 دقائق! +50🪙'); } },5*60*1000);
+setTimeout(()=>{ if(gameMode!=='none'){ ownedFreezes++; updateInventoryUI(); showDailyBonus('🕐 10 دقائق! ❄️ تجميد مجاني!'); saveGame(); } },10*60*1000);
+setTimeout(()=>{
+  if(gameMode!=='none'){
+    const locked=['t7','t8','t9','t10'].filter(t=>!ownedThemes.includes(t));
+    if(locked.length){ const g=locked[Math.floor(Math.random()*locked.length)]; ownedThemes.push(g); saveGame(); showDailyBonus('👑 20 دقيقة! ثيم مجاني!'); }
+    else { addCoins(200); showDailyBonus('👑 20 دقيقة! +200🪙'); }
+  }
+},20*60*1000);
+</script>
+</body>
+</html>
