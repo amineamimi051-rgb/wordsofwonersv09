@@ -2672,6 +2672,136 @@ updateHeartsUI();
 startHeartRegenTimer();
 // اعرض شاشة اختيار الوضع عند الفتح
 showModeScreen();
+<!-- ═══════════════════════════════════════════════
+     منبثق المكافأة اليومية - يضاف في body اللعبة
+     ═══════════════════════════════════════════════ -->
+
+<!-- النافذة المنبثقة -->
+<div id="rewardPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:linear-gradient(135deg, #1a1a2e, #16213e); border:2px solid #ffd700; border-radius:24px; padding:35px; max-width:320px; width:90%; text-align:center; box-shadow:0 0 60px rgba(255,215,0,0.4); animation:popIn 0.4s;">
+        
+        <div style="font-size:70px; margin-bottom:15px; animation:float 2s infinite;">🎁</div>
+        
+        <h2 style="color:#ffd700; margin:0 0 10px; font-size:26px; font-family:'Tajawal',sans-serif;">مكافأتك جاهزة!</h2>
+        
+        <p style="color:#94a3b8; margin:0 0 25px; font-size:15px; line-height:1.7;">
+            اضغط الزر للانتقال وفتح صندوق المكافآت<br>
+            <span style="color:#64748b; font-size:12px;">المكافأة التالية بعد: <span id="countdown" style="color:#ffd700; font-weight:bold;">--:--</span></span>
+        </p>
+        
+        <!-- زر الانتقال للمكافأة -->
+        <button onclick="goToReward()" style="width:100%; padding:18px; background:linear-gradient(135deg, #ffd700, #ffed4e); border:none; border-radius:15px; color:#000; font-family:'Tajawal',sans-serif; font-size:20px; font-weight:900; cursor:pointer; box-shadow:0 6px 25px rgba(255,215,0,0.5); transition:all 0.3s; margin-bottom:12px;">
+            🚀 اذهب للمكافأة الآن
+        </button>
+        
+        <button onclick="closePopup()" style="background:transparent; border:none; color:#64748b; font-size:14px; cursor:pointer; font-family:'Tajawal',sans-serif;">
+            ✕ إغلاق
+        </button>
+    </div>
+</div>
+
+<!-- زر عائم صغير (يظهر عندما تكون المكافأة جاهزة) -->
+<div id="floatBtn" onclick="showPopup()" style="display:none; position:fixed; bottom:25px; left:25px; background:linear-gradient(135deg, #ffd700, #ffed4e); color:#000; padding:15px 25px; border-radius:50px; font-family:'Tajawal',sans-serif; font-weight:900; cursor:pointer; box-shadow:0 6px 30px rgba(255,215,0,0.6); z-index:9998; animation:pulse 2s infinite; font-size:16px;">
+    🎁 المكافأة جاهزة!
+</div>
+
+<style>
+@keyframes popIn {
+    from { transform:scale(0.8); opacity:0; }
+    to { transform:scale(1); opacity:1; }
+}
+@keyframes float {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-15px); }
+}
+@keyframes pulse {
+    0%,100% { transform:scale(1); box-shadow:0 6px 30px rgba(255,215,0,0.6); }
+    50% { transform:scale(1.05); box-shadow:0 8px 40px rgba(255,215,0,0.9); }
+}
+</style>
+
+<script>
+// ═══════════════════════════════════════════════
+// ⚠️ ضع رابط صفحة المكافأة هنا ↓↓↓
+// ═══════════════════════════════════════════════
+const REWARD_URL = "https://amineamimi051-rgb.github.io/Germain/reward.html";
+// أو إذا كانت في نفس المجلد: "./reward.html"
+// ═══════════════════════════════════════════════
+
+const COOLDOWN = 6 * 60 * 60 * 1000; // 6 ساعات
+
+// فحص عند تحميل الصفحة
+window.addEventListener('load', () => {
+    checkRewardStatus();
+    // فحص كل دقيقة
+    setInterval(checkRewardStatus, 60000);
+});
+
+function checkRewardStatus() {
+    const last = localStorage.getItem('lastRewardClick');
+    const now = Date.now();
+    const popup = document.getElementById('rewardPopup');
+    const floatBtn = document.getElementById('floatBtn');
+    const countdownEl = document.getElementById('countdown');
+    
+    if (!last) {
+        // أول مرة - أظهر المنبثق بعد 3 ثواني
+        setTimeout(showPopup, 3000);
+        return;
+    }
+    
+    const next = parseInt(last) + COOLDOWN;
+    const remaining = next - now;
+    
+    if (remaining <= 0) {
+        // جاهز - أظهر الزر العائم
+        floatBtn.style.display = 'block';
+        if (countdownEl) countdownEl.textContent = 'الآن! ✅';
+    } else {
+        // لا يزال هناك وقت
+        floatBtn.style.display = 'none';
+        popup.style.display = 'none';
+        
+        // تحديث العداد
+        const hours = Math.floor(remaining / (1000 * 60 * 60));
+        const mins = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+        if (countdownEl) countdownEl.textContent = `${hours}س ${mins}د`;
+    }
+}
+
+function showPopup() {
+    document.getElementById('rewardPopup').style.display = 'flex';
+    updateCountdown();
+}
+
+function closePopup() {
+    document.getElementById('rewardPopup').style.display = 'none';
+}
+
+function goToReward() {
+    // حفظ وقت الضغط
+    localStorage.setItem('lastRewardClick', Date.now().toString());
+    
+    // الانتقال لصفحة المكافأة
+    window.location.href = REWARD_URL;
+}
+
+function updateCountdown() {
+    const last = localStorage.getItem('lastRewardClick');
+    if (!last) return;
+    
+    const next = parseInt(last) + COOLDOWN;
+    const remaining = next - Date.now();
+    
+    if (remaining > 0) {
+        const hours = Math.floor(remaining / (1000 * 60 * 60));
+        const mins = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('countdown').textContent = `${hours}س ${mins}د`;
+    }
+}
+</script>
+  
+  
 // ══════════════════════════════════════════════
 // استلام المكافأة من URL Parameters (GitHub Pages)
 // ══════════════════════════════════════════════
